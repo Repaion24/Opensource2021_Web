@@ -3,6 +3,8 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Shoplist from './pages/Shoplist'
 import Login from './pages/Login'
+import Game from './pages/Game'
+
 
 import {
   BrowserRouter as Router,
@@ -25,6 +27,9 @@ function App() {
             </Route>
             <Route path="/login">
               <Login />
+            </Route>
+            <Route path="/game">
+              <Game />
             </Route>
           </Switch>
         </div>
