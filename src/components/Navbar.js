@@ -10,7 +10,6 @@ const Navbar_ = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
                         <Nav.Link href="/shoplist">장바구니</Nav.Link>
-                        <Nav.Link href="#link">결제</Nav.Link>
                         <NavDropdown title="용도별 구매" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">사무용 컴퓨터</NavDropdown.Item>
                             <NavDropdown.Item href="/game">게임용 컴퓨터</NavDropdown.Item>
