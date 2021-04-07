@@ -9,6 +9,7 @@ import Game from './pages/Game'
 import Signup from './pages/Signup'
 import Broadcast from './pages/Broadcast'
 import Office from './pages/Office'
+import More from './pages/More'
 
 
 function App() {
@@ -38,6 +39,9 @@ function App() {
             </Route>
             <Route path="/Office">
               <Office />
+            </Route>
+            <Route path="/Office">
+              <More />
             </Route>
           </Switch>
         </div>
