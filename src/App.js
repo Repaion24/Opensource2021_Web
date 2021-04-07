@@ -1,17 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route,} from 'react-router-dom';
+
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Shoplist from './pages/Shoplist'
 import Login from './pages/Login'
 import Game from './pages/Game'
 import Signup from './pages/Signup'
+import Broadcast from './pages/Broadcast'
+import Office from './pages/Office'
 
-
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from 'react-router-dom';
 
 function App() {
   return (
@@ -32,8 +30,14 @@ function App() {
             <Route path="/Signup">
               <Signup />
             </Route>
-            <Route path="/game">
+            <Route path="/Game">
               <Game />
+              </Route>
+            <Route path="/Broadcast">
+              <Broadcast />
+            </Route>
+            <Route path="/Office">
+              <Office />
             </Route>
           </Switch>
         </div>

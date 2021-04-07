@@ -21,7 +21,7 @@ const login = () => {
             <Form.Text className="text-muted">
                     아직 회원이 아니신가요?
             </Form.Text>
-            <Button href="/Signup" size="lg" variant="danger" type="submit" block>
+            <Button href="/Signup" size="lg" variant="danger" block>
                 회원가입
             </Button>
         </Form>

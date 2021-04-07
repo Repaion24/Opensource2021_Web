@@ -6,7 +6,7 @@ import { Form, Button } from 'react-bootstrap';
 const Signup = () => {
     return (
         <Form>
-            <Form.Group controlId="formBasicEmail">
+            <Form.Group>
                 <Form.Label>이름</Form.Label>
                 <Form.Control placeholder="Name" />
             </Form.Group>
