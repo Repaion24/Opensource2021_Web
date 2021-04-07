@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Shoplist from './pages/Shoplist'
 import Login from './pages/Login'
 import Game from './pages/Game'
+import Signup from './pages/Signup'
 
 
 import {
@@ -27,6 +28,9 @@ function App() {
             </Route>
             <Route path="/login">
               <Login />
+            </Route>
+            <Route path="/Signup">
+              <Signup />
             </Route>
             <Route path="/game">
               <Game />
