@@ -1,5 +1,5 @@
 import React from 'react';
-import {Jumbotron,Button, } from 'react-bootstrap';
+import {Jumbotron,Button } from 'react-bootstrap';
 import { useHistory} from 'react-router-dom'
 import More from './More'
 const Home = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Jumbotron,ListGroup} from 'react-bootstrap';  //제목과 컴퓨터리스트 작성을 위한 import 했음
+import {Jumbotron,ListGroup, ListGroupItem, Button} from 'react-bootstrap';  //제목과 컴퓨터리스트 작성을 위한 import 했음
 
 const Office = () => {
     return (
@@ -9,25 +9,56 @@ const Office = () => {
             <h1>사무용 컴퓨터</h1>
             <p> 게임도 안하고 영화도 안보는데 문서 작업만 한다면 가벼운 사양의 컴퓨터가 제격!</p>
         </Jumbotron>
-           
         <ListGroup variant="flush">
             <ListGroup.Item>
-                   
-                <img src={process.env.PUBLIC_URL + '/test_image.png'} width = '150' height='150' alt="test_image" />
-                상세 사양
-                CPU : i5-5000
-                RAM : 4GB
-                POWER : 300W
+                <table class = "table table-hover" >
+                    <tr>
+                      <td class="pricewidth" rowspan = "4"> 
+                      <img src={process.env.PUBLIC_URL + '/test_image.png'} width = '200' height='200' alt="test_image" />
+                      </td>
+                      <td colspan = "3">
+                      <h4>상세 사양</h4>
+                      </td>
+                    </tr>
+                    <tr>
+                        <td>CPU : i5-5000</td>
+                        <td>RAM : 4GB</td>
+                        <td>MainBoard : H410M-H</td>
+                    </tr>
+                    <tr>
+                        <td>GPU : gtx1660</td>
+                        <td colspan = "2">POWER : 300W</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-7">
+                                      <h2>가격 : 350,000 </h2>
+                                    </div>
+                                    <div class="col-2">
+                                    <button type="button" class="btn btn-outline-primary">구매하기</button>
+                                    </div>
+                                    <div class="col-3">
+                                    <button type="button" class="btn btn-outline-warning">장바구니 추가</button>
+                                    </div>
+                                </div>
+                            </div>                     
+                        </td>
+                      
+                    </tr>
+                </table>
+                
                 {/* 위의 이미지는 public폴더에 있습니다. public에서 이미지를 가져오려면 process.env.PUBLIC_URLL을 사용해야된다덥니다. */}
                 {/* 그리고 주석 단축키는 주석처리할 문장 앞 커서에서 ctrl + / 입니다. 이거 편함 by 차재현 21-04-08*/}
-                {/* 그리고 지금 이미지만 나오고 우측에 사양같은거도 쓰려고하는데 못찾았습니다 잉? 되네? 그래도 위치설정 할 수 있어야 됨*/}
+                {/* 우선 각 상품 리스트출력 구조는 얼추 된듯. 각 조건에 맞는 상품들을 어떻게 불러올지가 문제..*/}
+                {/* 그리고 버튼도 만들어 놨는데 저거를 이제 구매,장바구니랑 연결을 해야되는데 DB영역이니 버튼만 만들어 놓음. */}
+                {/* 그리고 장바구니 추가하면 혹시 가능하면 NavBar에 있는 장바구니에 알림 표시기능 있으면 좋을듯 */}
+            
             </ListGroup.Item>
-            <ListGroup.Item>     
-                 <img src={process.env.PUBLIC_URL + '/test_image.png'} width = '150' height='150' alt="test_image" />
-            </ListGroup.Item>
-            <ListGroup.Item>                
-                <img src={process.env.PUBLIC_URL + '/test_image.png'} width = '150' height='150' alt="test_image" />
-            </ListGroup.Item>
+            <ListGroupItem>이미지랑 사양이랑 내용</ListGroupItem>
+            <ListGroupItem>이미지랑 사양이랑 내용</ListGroupItem>
+
         </ListGroup>
         
         
