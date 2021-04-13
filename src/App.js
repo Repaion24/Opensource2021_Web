@@ -16,6 +16,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <h1 className="mainlogo">Com.Com</h1>
       <Navbar />
         <div className="container">
           <Switch>

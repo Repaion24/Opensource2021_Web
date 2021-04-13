@@ -1,7 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Jumbotron,ListGroup} from 'react-bootstrap';//제목과 컴퓨터리스트 작성을 위한 import 했음
+import Modal from '../components/Modal';
 
 const Broadcast = () => {
+
+    const [modalOpen, setModalOpen] = useState(false);
+
+    const openModal = () => {
+        setModalOpen(true);
+    }
+    const closeModal = () => {
+        setModalOpen(false);
+    }
+
     return (
                                                      //제목에 내용 넣고, 밑에 제품 리스트 나올 공간 만들었음
         <div>
@@ -10,7 +21,7 @@ const Broadcast = () => {
             <p> 방송하는 동안 사용하는 많은 프로그램은 CPU와 RAM이 처리할거에요!  </p>
         </Jumbotron>
 
-        <ListGroup>
+        <ListGroup variant="flush">
             <ListGroup.Item>
             <table class = "table table-hover" >
                     <tr>
@@ -38,7 +49,13 @@ const Broadcast = () => {
                                       <h2>가격 : 350,000 </h2>
                                     </div>
                                     <div class="col-2">
-                                    <button type="button" class="btn btn-outline-primary">구매하기</button>
+                                    <React.Fragment>
+                                                <button type="button" class="btn btn-outline-primary" onClick={openModal}>구매하기</button>
+                                                <Modal open={modalOpen} close={closeModal} header="구매 페이지"></Modal>
+                                                {/* header 부분에 텍스트를 입력한다. */}
+                                                
+                                                {/* Modal.js <main> { props.children } </main>에 내용이 입력된다.  */}
+                                            </React.Fragment>
                                     </div>
                                     <div class="col-3">
                                     <button type="button" class="btn btn-outline-warning">장바구니 추가</button>
