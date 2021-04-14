@@ -30,8 +30,17 @@ const Home = () => {
         <ListGroup.Item>이미지랑 사양이랑 내용</ListGroup.Item>
         <ListGroup.Item>이미지랑 사양이랑 내용</ListGroup.Item>
         <ListGroup.Item>이미지랑 사양이랑 내용</ListGroup.Item>
-    </ListGroup>
+        </ListGroup>
+
+        
+        <script src="/__/firebase/8.4.1/firebase-app.js"></script>
+
+        <script src="/__/firebase/8.4.1/firebase-analytics.js"></script>
+
+
+        <script src="/__/firebase/init.js"></script>
       </div>
+      
     );
 };
 

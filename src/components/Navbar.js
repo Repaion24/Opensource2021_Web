@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar,Nav,NavDropdown } from 'react-bootstrap';
 
 
-const Navbar_ = () => {
+const Navbar_ = ( {handleLogout, user} ) => {
     return (
         <Navbar bg="light" expand="lg">
             <Navbar.Brand href="/">Home</Navbar.Brand>
@@ -16,8 +16,19 @@ const Navbar_ = () => {
                             <NavDropdown.Item href="/Broadcast">방송용 컴퓨터</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
+                    {user ? (
+                            <>안녕하세요</>
+                        ) : (
+                            <>로그인하세요</>
+                        )}
                     <Nav className="ml-auto">
-                        <Nav.Link href="/login">로그인/회원가입</Nav.Link>
+                        <div className = "btnContainer">
+                        {user ? (
+                            <><button type="button" class = "btn btn-danger" onClick={handleLogout}>로그아웃</button></>
+                        ) : (
+                            <><Nav.Link href="/login">로그인/회원가입</Nav.Link></>
+                        )}
+                        </div>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
