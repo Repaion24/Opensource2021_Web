@@ -5,7 +5,9 @@ import { Navbar,Nav,NavDropdown } from 'react-bootstrap';
 const Navbar_ = ( {handleLogout, user} ) => {
     return (
         <Navbar bg="light" expand="lg">
-            <Navbar.Brand href="/">Home</Navbar.Brand>
+            <Navbar.Brand href="/">
+                <h1>Com.Com</h1>
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
@@ -15,6 +17,7 @@ const Navbar_ = ( {handleLogout, user} ) => {
                             <NavDropdown.Item href="/Game">게임용 컴퓨터</NavDropdown.Item>
                             <NavDropdown.Item href="/Broadcast">방송용 컴퓨터</NavDropdown.Item>
                         </NavDropdown>
+                        <Nav.Link href="/Purchasehistory">구매내역</Nav.Link>
                     </Nav>
                     {user ? (
                             <>안녕하세요</>
