@@ -1,9 +1,8 @@
 import React from 'react';
 import {ListGroup, ListGroupItem} from 'react-bootstrap';
 import "../css_folder/modal.css";
-import * as  addToCart1  from "../App.js"
 
-const Modal = (props) => {
+const Modal1 = (props) => {
     // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
     const {open, close, header} = props;
 
@@ -25,7 +24,7 @@ const Modal = (props) => {
                                 <table>
                                     <tr>
                                         <td>
-                                        <h2>결제가 완료되었습니다</h2>
+                                        <h2>장바구니에 추가되었습니다</h2>
                                         <h8>2초후 자동으로 종료됩니다.</h8>
                                         </td>
                                     </tr>
@@ -42,4 +41,4 @@ const Modal = (props) => {
     )
 }
 
-export default Modal;
+export default Modal1;

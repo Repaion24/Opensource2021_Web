@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {
+    Card,
     Jumbotron,
     Button,
     ListGroup,
@@ -10,292 +11,40 @@ import {
 import {useHistory} from 'react-router-dom'
 import More from './More'
 import Modal from '../components/Modal';
-const Home = () => {
 
-    const [modalOpen, setModalOpen] = useState(false);
 
-    const openModal = () => {
-        setModalOpen(true);
-    }
-    const closeModal = () => {
-        setModalOpen(false);
-    }
 
-    let history = useHistory();
 
-const [products] = useState([
-    {
-        name : 'Intel CPU i7',
-        cost : '400,000',
-        core : '8코어',
-        thread : '8스레드',
-        g : '9세대',
-        image : process.env.PUBLIC_URL + '/cpu_test_image.png'
-    },
-    {
-        name : 'Intel CPU i9',
-        cost : '400,000',
-        core : '8코어',
-        thread : '8스레드',
-        g : '9세대',
-        image : process.env.PUBLIC_URL + '/cpu_test_image.png'
-    },
-    {
-        name : 'Intel CPU i5',
-        cost : '400,000',
-        core : '8코어',
-        thread : '8스레드',
-        g : '9세대',
-        image : process.env.PUBLIC_URL + '/cpu_test_image.png'
-    },
-    {
-        name : 'Intel CPU Pantium Gold',
-        cost : '400,000',
-        core : '8코어',
-        thread : '8스레드',
-        g : '9세대',
-        image : process.env.PUBLIC_URL + '/cpu_test_image.png'
-    },    {
-        name : 'SAMSUNG 4GB',
-        cost : '400,000',
-        core : '8코어',
-        thread : '8스레드',
-        g : '9세대',
-        image : process.env.PUBLIC_URL + '/ram_test_image.png'
-    },
-    {
-        name : 'SAMSUNG 8GB',
-        cost : '400,000',
-        core : '8코어',
-        thread : '8스레드',
-        g : '9세대',
-        image : process.env.PUBLIC_URL + '/ram_test_image.png'
-    },
-    {
-        name : 'SAMSUNG 16GB',
-        cost : '400,000',
-        core : '8코어',
-        thread : '8스레드',
-        g : '9세대',
-        image : process.env.PUBLIC_URL + '/ram_test_image.png'
-    },
-    {
-        name : 'SAMSUNG 32GB',
-        cost : '400,000',
-        core : '8코어',
-        thread : '8스레드',
-        g : '9세대',
-        image : process.env.PUBLIC_URL + '/ram_test_image.png'
-    },
-    {
-        name : 'NVidia GeForce RTX 3080',
-        cost : '400,000',
-        core : '8코어',
-        thread : '8스레드',
-        g : '9세대',
-        image : process.env.PUBLIC_URL + '/gpu_test_image.png'
-    },
-    {
-        name : 'NVidia GeForce RTX 2080',
-        cost : '400,000',
-        core : '8코어',
-        thread : '8스레드',
-        g : '9세대',
-        image : process.env.PUBLIC_URL + '/gpu_test_image.png'
-    },
-    {
-        name : 'NVidia GeForce GTX 1660 super',
-        cost : '400,000',
-        core : '8코어',
-        thread : '8스레드',
-        g : '9세대',
-        image : process.env.PUBLIC_URL + '/gpu_test_image.png'
-    },
-    {
-        name : 'AMD Radeon pro',
-        cost : '400,000',
-        core : '8코어',
-        thread : '8스레드',
-        g : '9세대',
-        image : process.env.PUBLIC_URL + '/gpu_test_image.png'
-    }
-])
+const Home = (props) => {
 
-const [products1] = useState([
-    {
-        name : 'Intel CPU i7',
-        cost : '400,000',
-        core : '8코어',
-        thread : '8스레드',
-        g : '9세대',
-        image : process.env.PUBLIC_URL + '/cpu_test_image.png'
-    },
-    {
-        name : 'Intel CPU i9',
-        cost : '400,000',
-        core : '8코어',
-        thread : '8스레드',
-        g : '9세대',
-        image : process.env.PUBLIC_URL + '/cpu_test_image.png'
-    },
-    {
-        name : 'Intel CPU i5',
-        cost : '400,000',
-        core : '8코어',
-        thread : '8스레드',
-        g : '9세대',
-        image : process.env.PUBLIC_URL + '/cpu_test_image.png'
-    },
-    {
-        name : 'Intel CPU Pantium Gold',
-        cost : '400,000',
-        core : '8코어',
-        thread : '8스레드',
-        g : '9세대',
-        image : process.env.PUBLIC_URL + '/cpu_test_image.png'
-}
-])
+    const {
+        products,
+        products1,
+        products2,
+        products3,
+        PAGE_PRODUCT,
+        PAGE_CART,
+        PAGE_CART1,
+        page,
+        cart,
+        cart1,
+        addToCart,
+        RemoveFromCart,
+        renderProducts,
+        renderCart,
+        renderCart1,
+        navigateTo,
+        modalOpen,
+        openModal,
+        closeModal,
+        renderProducts1,
+        renderProducts2,
+        renderProducts3,
+        user
+    } = props;
 
-const [products2] = useState([
-    {
-        name : 'NVidia GeForce RTX 3080',
-        cost : '400,000',
-        core : '8코어',
-        thread : '8스레드',
-        g : '9세대',
-        image : process.env.PUBLIC_URL + '/gpu_test_image.png'
-    },
-    {
-        name : 'NVidia GeForce RTX 2080',
-        cost : '400,000',
-        core : '8코어',
-        thread : '8스레드',
-        g : '9세대',
-        image : process.env.PUBLIC_URL + '/gpu_test_image.png'
-    },
-    {
-        name : 'NVidia GeForce GTX 1660 super',
-        cost : '400,000',
-        core : '8코어',
-        thread : '8스레드',
-        g : '9세대',
-        image : process.env.PUBLIC_URL + '/gpu_test_image.png'
-    },
-    {
-        name : 'AMD Radeon pro',
-        cost : '400,000',
-        core : '8코어',
-        thread : '8스레드',
-        g : '9세대',
-        image : process.env.PUBLIC_URL + '/gpu_test_image.png'
-    }
-])
 
-const [products3] = useState([
-    {
-        name : 'SAMSUNG 4GB',
-        cost : '400,000',
-        core : '8코어',
-        thread : '8스레드',
-        g : '9세대',
-        image : process.env.PUBLIC_URL + '/ram_test_image.png'
-    },
-    {
-        name : 'SAMSUNG 8GB',
-        cost : '400,000',
-        core : '8코어',
-        thread : '8스레드',
-        g : '9세대',
-        image : process.env.PUBLIC_URL + '/ram_test_image.png'
-    },
-    {
-        name : 'SAMSUNG 16GB',
-        cost : '400,000',
-        core : '8코어',
-        thread : '8스레드',
-        g : '9세대',
-        image : process.env.PUBLIC_URL + '/ram_test_image.png'
-    },
-    {
-        name : 'SAMSUNG 32GB',
-        cost : '400,000',
-        core : '8코어',
-        thread : '8스레드',
-        g : '9세대',
-        image : process.env.PUBLIC_URL + '/ram_test_image.png'
-    }
-])
 
-const PAGE_PRODUCT = 'products';
-const PAGE_CART = 'cart';
-
-const [page, setPage] = useState(PAGE_PRODUCT);
-
-const [cart, setCart] = useState([]);
-
-const addToCart = (product) =>{
-
-    setCart([...cart, product]);
-}
-
-const RemoveFromCart = (productToremove)=>{
-    setCart(cart.filter(product=>product !== productToremove));
-}
-
-const renderProducts = () =>(
-                                <div>
-                                    <h4>물품 내역</h4>
-                                {products.map((product, idx)=>(
-                                    <div className="product" key={idx}>
-                                        <img src={product.image} alt={product.name}/>
-                                        <h3>{product.name}</h3>
-                                        <h4>{product.cost}</h4>
-                                        <h4>{product.core}</h4>
-                                        <h4>{product.thread}</h4>
-                                        <h4>{product.g}</h4>
-                                        <button onClick={()=>addToCart(product)}>장바구니 추가({cart.length})</button>
-
-                                </div>
-                                ))}
-                                </div>
-)
-
-const renderCart = () =>(
-    <div>
-        <h4>장바구니</h4>
-    {cart.map((product, idx)=>(
-        <div className="cart" key={idx}>
-            <img src={product.image} alt={product.name}/>
-            <h3>{product.name}</h3>
-            <h4>{product.cost}</h4>
-            <h4>{product.core}</h4>
-            <h4>{product.thread}</h4>
-            <h4>{product.g}</h4>
-            <button onClick={()=>RemoveFromCart(product)}>장바구니에서 제거({cart.length})</button>
-    </div>
-    ))}
-    </div>
-)
-
-const renderCart1 = () =>(
-    <div>
-        <h4>구매내역</h4>
-    {cart.map((product, idx)=>(
-        <div className="cart" key={idx}>
-            <img src={product.image} alt={product.name}/>
-            <h3>{product.name}</h3>
-            <h4>{product.cost}</h4>
-            <h4>{product.core}</h4>
-            <h4>{product.thread}</h4>
-            <h4>{product.g}</h4>
-            <button onClick={()=>RemoveFromCart(product)}>장바구니에서 제거({cart.length})</button>
-    </div>
-    ))}
-    </div>
-)
-const navigateTo = (nextPage)=>{
-    setPage(nextPage);
-};
     return (
         <div>
             <Jumbotron className="background">
@@ -303,13 +52,13 @@ const navigateTo = (nextPage)=>{
                 <span>
                     컴퓨터 지식을 모르는 사람도 사용하기 쉬운 웹사이트</span>
                 <p>
-                    <Button onClick={()=>navigateTo(PAGE_CART)}> 장바구니 </Button>
+                <Button size = "lg" variant="success" onClick={()=>navigateTo(PAGE_PRODUCT)} block> 제품 보기 </Button>
                 </p>
                 <p>
-                    <Button onClick={()=>navigateTo(PAGE_PRODUCT)}> 제품 보기 </Button>
+                { user && <div><Button size = "lg" variant="warning" onClick={()=>navigateTo(PAGE_CART) } block > 장바구니 </Button></div>}
                 </p>
                 <p>
-                    <Button onClick={()=>navigateTo(PAGE_CART)}> 구매내역 </Button>
+                { user && <div><Button size = "lg" variant="info" onClick={()=>navigateTo(PAGE_CART1)} block > 구매내역 </Button></div>}
                 </p>
             </Jumbotron>
             {/* 위의 이미지는 public폴더에 있습니다. public에서 이미지를 가져오려면 process.env.PUBLIC_URLL을 사용해야됩니다. */}
@@ -317,739 +66,58 @@ const navigateTo = (nextPage)=>{
             {/* 우선 각 상품 리스트출력 구조는 얼추 된듯. 각 조건에 맞는 상품들을 어떻게 불러올지가 문제..*/}
             {/* 그리고 버튼도 만들어 놨는데 저거를 이제 구매,장바구니랑 연결을 해야되는데 DB영역이니 버튼만 만들어 놓음. */}
             {/* 그리고 장바구니 추가하면 혹시 가능하면 NavBar에 있는 장바구니에 알림 표시기능 있으면 좋을듯 */}
+            
 
-            <Tabs defaultActiveKey="all" id="uncontrolled-tab-example">
-                <Tab eventKey="all" title="all">
-                    {/* 여기는 CPU Tab 부분 */}
+            {page == PAGE_PRODUCT ? (
+                <Tabs defaultActiveKey="all" id="uncontrolled-tab-example">
+                <Tab eventKey="all" title="ALL">
+                <Card.Header><h4>모든 물품 목록</h4></Card.Header>
+                    {/* 여기는 All Tabs부분 */}
                     <ListGroup variant="flush">
-                        <ListGroup.Item id="cpu1">
                             <table class="table table-hover">
-                                {page === 'products' && renderProducts()}
-                                {page === PAGE_CART && renderCart()}       
+                                {renderProducts()}      
                             </table>
-                            
-                        </ListGroup.Item>
-                        <ListGroup.Item id="cpu2">
-                            <table class="table table-hover">
-                                <tr>
-                                    <td class="pricewidth" rowspan="4">
-                                        <img
-                                            src={process.env.PUBLIC_URL + '/cpu_test_image.png'}
-                                            width='200'
-                                            height='200'
-                                            alt="test_image"/>
-
-                                    </td>
-                                    <td colspan="3">
-                                        <h4>제품명 : Intel CPU i9</h4>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <span>상세 사양</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>코어 : 8코어</td>
-                                    <td>스레드 : 8스레드</td>
-                                    <td>세대 : 9세대</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-7">
-                                                    <h2>가격 : 400,000</h2>
-                                                </div>
-                                                <div class="col-2">
-                                                    <React.Fragment>
-                                                        <button type="button" class="btn btn-outline-primary" onClick={openModal}>구매하기</button>
-                                                        <Modal open={modalOpen} close={closeModal} header="구매 페이지"></Modal>
-                                                        {/* header 부분에 텍스트를 입력한다. */}
-
-                                                        {/* Modal.js <main> { props.children } </main>에 내용이 입력된다.  */}
-                                                    </React.Fragment>
-                                                </div>
-                                                <div class="col-3">
-                                                    <button type="button" class="btn btn-outline-warning">장바구니 추가</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-
-                                </tr>
-                            </table>
-                        </ListGroup.Item>
-                        <ListGroup.Item id="cpu3">
-                            <table class="table table-hover">
-                                <tr>
-                                    <td class="pricewidth" rowspan="4">
-                                        <img
-                                            src={process.env.PUBLIC_URL + '/cpu_test_image.png'}
-                                            width='200'
-                                            height='200'
-                                            alt="test_image"/>
-
-                                    </td>
-                                    <td colspan="3">
-                                        <h4>제품명 : Intel CPU i5</h4>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <span>상세 사양</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>코어 : 8코어</td>
-                                    <td>스레드 : 8스레드</td>
-                                    <td>세대 : 9세대</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-7">
-                                                    <h2>가격 : 400,000</h2>
-                                                </div>
-                                                <div class="col-2">
-                                                    <React.Fragment>
-                                                        <button type="button" class="btn btn-outline-primary" onClick={openModal}>구매하기</button>
-                                                        <Modal open={modalOpen} close={closeModal} header="구매 페이지"></Modal>
-                                                        {/* header 부분에 텍스트를 입력한다. */}
-
-                                                        {/* Modal.js <main> { props.children } </main>에 내용이 입력된다.  */}
-                                                    </React.Fragment>
-                                                </div>
-                                                <div class="col-3">
-                                                    <button type="button" class="btn btn-outline-warning">장바구니 추가</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-
-                                </tr>
-                            </table>
-
-                        </ListGroup.Item>
-                        <ListGroup.Item id="cpu4">
-                            <table class="table table-hover">
-                                <tr>
-                                    <td class="pricewidth" rowspan="4">
-                                        <img
-                                            src={process.env.PUBLIC_URL + '/cpu_test_image.png'}
-                                            width='200'
-                                            height='200'
-                                            alt="test_image"/>
-
-                                    </td>
-                                    <td colspan="3">
-                                        <h4>제품명 : Intel CPU Pantium Gold</h4>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <span>상세 사양</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>코어 : 8코어</td>
-                                    <td>스레드 : 8스레드</td>
-                                    <td>세대 : 9세대</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-7">
-                                                    <h2>가격 : 400,000</h2>
-                                                </div>
-                                                <div class="col-2">
-                                                    <React.Fragment>
-                                                        <button type="button" class="btn btn-outline-primary" onClick={openModal}>구매하기</button>
-                                                        <Modal open={modalOpen} close={closeModal} header="구매 페이지"></Modal>
-                                                        {/* header 부분에 텍스트를 입력한다. */}
-
-                                                        {/* Modal.js <main> { props.children } </main>에 내용이 입력된다.  */}
-                                                    </React.Fragment>
-                                                </div>
-                                                <div class="col-3">
-                                                    <button type="button" class="btn btn-outline-warning">장바구니 추가</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-
-                                </tr>
-                            </table>
-                        </ListGroup.Item>
                     </ListGroup>
                 </Tab>
                 
                 <Tab eventKey="cpu" title="CPU">
-                    {/* 여기는 GPU Tab 부분 */}
-
+                <Card.Header><h4>CPU 목록</h4></Card.Header>
+                    {/* 여기는 CUP Tab 부분 */}
                     <ListGroup variant="flush">
-                        <ListGroup.Item id="cpu1">
-                            <table class="table table-hover">
-                                <tr>
-                                <div>
-                                {products1.map((product1, idx)=>(
-                                    <div className="product2" key={idx}>
-                                        <img src={product1.image} alt={product1.name}/>
-                                        <h3>{product1.name}</h3>
-                                        <h4>{product1.cost}</h4>
-                                        <h4>{product1.core}</h4>
-                                        <h4>{product1.thread}</h4>
-                                        <h4>{product1.g}</h4>
-                                        <button onClick={()=>addToCart(product1)}>장바구니 추가({cart.length})</button>
-
-                                </div>
-                                ))}
-                                </div>
-                                </tr>
+                    <table class="table table-hover">
+                                {renderProducts1()}      
                             </table>
-
-                            {/* 위의 이미지는 public폴더에 있습니다. public에서 이미지를 가져오려면 process.env.PUBLIC_URLL을 사용해야됩니다. */}
-                            {/* 그리고 주석 단축키는 주석처리할 문장 앞 커서에서 ctrl + / 입니다. 이거 편함 by 차재현 21-04-08*/}
-                            {/* 우선 각 상품 리스트출력 구조는 얼추 된듯. 각 조건에 맞는 상품들을 어떻게 불러올지가 문제..*/}
-                            {/* 그리고 버튼도 만들어 놨는데 저거를 이제 구매,장바구니랑 연결을 해야되는데 DB영역이니 버튼만 만들어 놓음. */}
-                            {/* 그리고 장바구니 추가하면 혹시 가능하면 NavBar에 있는 장바구니에 알림 표시기능 있으면 좋을듯 */}
-
-                        </ListGroup.Item>
-                        <ListGroup.Item id="gpu2">
-                            <table class="table table-hover">
-                                <tr>
-                                    <td class="pricewidth" rowspan="4">
-                                        <img
-                                            src={process.env.PUBLIC_URL + '/gpu_test_image.png'}
-                                            width='200'
-                                            height='200'
-                                            alt="test_image"/>
-
-                                    </td>
-                                    <td colspan="3">
-                                        <h4>제품명 : NVidia GeForce RTX 2080
-                                        </h4>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <span>상세 사양</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>코어 : 8코어</td>
-                                    <td>스레드 : 8스레드</td>
-                                    <td>세대 : 9세대</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-7">
-                                                    <h2>가격 : 400,000</h2>
-                                                </div>
-                                                <div class="col-2">
-                                                    <React.Fragment>
-                                                        <button type="button" class="btn btn-outline-primary" onClick={openModal}>구매하기</button>
-                                                        <Modal open={modalOpen} close={closeModal} header="구매 페이지"></Modal>
-                                                        {/* header 부분에 텍스트를 입력한다. */}
-
-                                                        {/* Modal.js <main> { props.children } </main>에 내용이 입력된다.  */}
-                                                    </React.Fragment>
-                                                </div>
-                                                <div class="col-3">
-                                                    <button type="button" class="btn btn-outline-warning">장바구니 추가</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-
-                                </tr>
-                            </table>
-                        </ListGroup.Item>
-                        <ListGroup.Item id="gpu3">
-                            <table class="table table-hover">
-                                <tr>
-                                    <td class="pricewidth" rowspan="4">
-                                        <img
-                                            src={process.env.PUBLIC_URL + '/gpu_test_image.png'}
-                                            width='200'
-                                            height='200'
-                                            alt="test_image"/>
-
-                                    </td>
-                                    <td colspan="3">
-                                        <h4>제품명 : NVidia GeForce GTX 1660 super</h4>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <span>상세 사양</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>코어 : 8코어</td>
-                                    <td>스레드 : 8스레드</td>
-                                    <td>세대 : 9세대</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-7">
-                                                    <h2>가격 : 400,000</h2>
-                                                </div>
-                                                <div class="col-2">
-                                                    <React.Fragment>
-                                                        <button type="button" class="btn btn-outline-primary" onClick={openModal}>구매하기</button>
-                                                        <Modal open={modalOpen} close={closeModal} header="구매 페이지"></Modal>
-                                                        {/* header 부분에 텍스트를 입력한다. */}
-
-                                                        {/* Modal.js <main> { props.children } </main>에 내용이 입력된다.  */}
-                                                    </React.Fragment>
-                                                </div>
-                                                <div class="col-3">
-                                                    <button type="button" class="btn btn-outline-warning">장바구니 추가</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-
-                                </tr>
-                            </table>
-
-                        </ListGroup.Item>
-                        <ListGroup.Item id="gpu4">
-                            <table class="table table-hover">
-                                <tr>
-                                    <td class="pricewidth" rowspan="4">
-                                        <img
-                                            src={process.env.PUBLIC_URL + '/gpu_test_image.png'}
-                                            width='200'
-                                            height='200'
-                                            alt="test_image"/>
-
-                                    </td>
-                                    <td colspan="3">
-                                        <h4>제품명 : AMD Radeon pro</h4>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <span>상세 사양</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>코어 : 8코어</td>
-                                    <td>스레드 : 8스레드</td>
-                                    <td>세대 : 9세대</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-7">
-                                                    <h2>가격 : 400,000</h2>
-                                                </div>
-                                                <div class="col-2">
-                                                    <React.Fragment>
-                                                        <button type="button" class="btn btn-outline-primary" onClick={openModal}>구매하기</button>
-                                                        <Modal open={modalOpen} close={closeModal} header="구매 페이지"></Modal>
-                                                        {/* header 부분에 텍스트를 입력한다. */}
-
-                                                        {/* Modal.js <main> { props.children } </main>에 내용이 입력된다.  */}
-                                                    </React.Fragment>
-                                                </div>
-                                                <div class="col-3">
-                                                    <button type="button" class="btn btn-outline-warning">장바구니 추가</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-
-                                </tr>
-                            </table>
-                        </ListGroup.Item>
                     </ListGroup>
                 </Tab>
                 <Tab eventKey="gpu" title="GPU">
+                <Card.Header><h4>GPU 목록</h4></Card.Header>
                     {/* 여기는 GPU Tab 부분 */}
 
                     <ListGroup variant="flush">
-                        <ListGroup.Item id="gpu1">
-                            <table class="table table-hover">
-                                <tr>
-                                <div>
-                                {products2.map((product2, idx)=>(
-                                    <div className="product2" key={idx}>
-                                        <img src={product2.image} alt={product2.name}/>
-                                        <h3>{product2.name}</h3>
-                                        <h4>{product2.cost}</h4>
-                                        <h4>{product2.core}</h4>
-                                        <h4>{product2.thread}</h4>
-                                        <h4>{product2.g}</h4>
-                                        <button onClick={()=>addToCart(product2)}>장바구니 추가({cart.length})</button>
-
-                                </div>
-                                ))}
-                                </div>
-                                </tr>
-                            </table>
-
-                            {/* 위의 이미지는 public폴더에 있습니다. public에서 이미지를 가져오려면 process.env.PUBLIC_URLL을 사용해야됩니다. */}
-                            {/* 그리고 주석 단축키는 주석처리할 문장 앞 커서에서 ctrl + / 입니다. 이거 편함 by 차재현 21-04-08*/}
-                            {/* 우선 각 상품 리스트출력 구조는 얼추 된듯. 각 조건에 맞는 상품들을 어떻게 불러올지가 문제..*/}
-                            {/* 그리고 버튼도 만들어 놨는데 저거를 이제 구매,장바구니랑 연결을 해야되는데 DB영역이니 버튼만 만들어 놓음. */}
-                            {/* 그리고 장바구니 추가하면 혹시 가능하면 NavBar에 있는 장바구니에 알림 표시기능 있으면 좋을듯 */}
-
-                        </ListGroup.Item>
-                        <ListGroup.Item id="gpu2">
-                            <table class="table table-hover">
-                                <tr>
-                                    <td class="pricewidth" rowspan="4">
-                                        <img
-                                            src={process.env.PUBLIC_URL + '/gpu_test_image.png'}
-                                            width='200'
-                                            height='200'
-                                            alt="test_image"/>
-
-                                    </td>
-                                    <td colspan="3">
-                                        <h4>제품명 : NVidia GeForce RTX 2080
-                                        </h4>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <span>상세 사양</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>코어 : 8코어</td>
-                                    <td>스레드 : 8스레드</td>
-                                    <td>세대 : 9세대</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-7">
-                                                    <h2>가격 : 400,000</h2>
-                                                </div>
-                                                <div class="col-2">
-                                                    <React.Fragment>
-                                                        <button type="button" class="btn btn-outline-primary" onClick={openModal}>구매하기</button>
-                                                        <Modal open={modalOpen} close={closeModal} header="구매 페이지"></Modal>
-                                                        {/* header 부분에 텍스트를 입력한다. */}
-
-                                                        {/* Modal.js <main> { props.children } </main>에 내용이 입력된다.  */}
-                                                    </React.Fragment>
-                                                </div>
-                                                <div class="col-3">
-                                                    <button type="button" class="btn btn-outline-warning">장바구니 추가</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-
-                                </tr>
-                            </table>
-                        </ListGroup.Item>
-                        <ListGroup.Item id="gpu3">
-                            <table class="table table-hover">
-                                <tr>
-                                    <td class="pricewidth" rowspan="4">
-                                        <img
-                                            src={process.env.PUBLIC_URL + '/gpu_test_image.png'}
-                                            width='200'
-                                            height='200'
-                                            alt="test_image"/>
-
-                                    </td>
-                                    <td colspan="3">
-                                        <h4>제품명 : NVidia GeForce GTX 1660 super</h4>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <span>상세 사양</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>코어 : 8코어</td>
-                                    <td>스레드 : 8스레드</td>
-                                    <td>세대 : 9세대</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-7">
-                                                    <h2>가격 : 400,000</h2>
-                                                </div>
-                                                <div class="col-2">
-                                                    <React.Fragment>
-                                                        <button type="button" class="btn btn-outline-primary" onClick={openModal}>구매하기</button>
-                                                        <Modal open={modalOpen} close={closeModal} header="구매 페이지"></Modal>
-                                                        {/* header 부분에 텍스트를 입력한다. */}
-
-                                                        {/* Modal.js <main> { props.children } </main>에 내용이 입력된다.  */}
-                                                    </React.Fragment>
-                                                </div>
-                                                <div class="col-3">
-                                                    <button type="button" class="btn btn-outline-warning">장바구니 추가</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-
-                                </tr>
-                            </table>
-
-                        </ListGroup.Item>
-                        <ListGroup.Item id="gpu4">
-                            <table class="table table-hover">
-                                <tr>
-                                    <td class="pricewidth" rowspan="4">
-                                        <img
-                                            src={process.env.PUBLIC_URL + '/gpu_test_image.png'}
-                                            width='200'
-                                            height='200'
-                                            alt="test_image"/>
-
-                                    </td>
-                                    <td colspan="3">
-                                        <h4>제품명 : AMD Radeon pro</h4>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <span>상세 사양</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>코어 : 8코어</td>
-                                    <td>스레드 : 8스레드</td>
-                                    <td>세대 : 9세대</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-7">
-                                                    <h2>가격 : 400,000</h2>
-                                                </div>
-                                                <div class="col-2">
-                                                    <React.Fragment>
-                                                        <button type="button" class="btn btn-outline-primary" onClick={openModal}>구매하기</button>
-                                                        <Modal open={modalOpen} close={closeModal} header="구매 페이지"></Modal>
-                                                        {/* header 부분에 텍스트를 입력한다. */}
-
-                                                        {/* Modal.js <main> { props.children } </main>에 내용이 입력된다.  */}
-                                                    </React.Fragment>
-                                                </div>
-                                                <div class="col-3">
-                                                    <button type="button" class="btn btn-outline-warning">장바구니 추가</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-
-                                </tr>
-                            </table>
-                        </ListGroup.Item>
+                    <table class="table table-hover">
+                        {renderProducts2()}     
+                    </table>
                     </ListGroup>
                 </Tab>
 
                 <Tab eventKey="ram" title="RAM">
+                <Card.Header><h4>RAM 목록</h4></Card.Header>
                     {/* 여기는 RAM Tab 부분 */}
                     <ListGroup variant="flush">
-                        <ListGroup.Item id="ram1">
-                            <table class="table table-hover">
-                                <tr>
-                                <div>
-                                {products3.map((product3, idx)=>(
-                                    <div className="product3" key={idx}>
-                                        <img src={product3.image} alt={product3.name}/>
-                                        <h3>{product3.name}</h3>
-                                        <h4>{product3.cost}</h4>
-                                        <h4>{product3.core}</h4>
-                                        <h4>{product3.thread}</h4>
-                                        <h4>{product3.g}</h4>
-                                        <button onClick={()=>addToCart(product3)}>장바구니 추가({cart.length})</button>
-
-                                </div>
-                                ))}
-                                </div>
-                                </tr>
-                            </table>
-
-                            {/* 위의 이미지는 public폴더에 있습니다. public에서 이미지를 가져오려면 process.env.PUBLIC_URLL을 사용해야됩니다. */}
-                            {/* 그리고 주석 단축키는 주석처리할 문장 앞 커서에서 ctrl + / 입니다. 이거 편함 by 차재현 21-04-08*/}
-                            {/* 우선 각 상품 리스트출력 구조는 얼추 된듯. 각 조건에 맞는 상품들을 어떻게 불러올지가 문제..*/}
-                            {/* 그리고 버튼도 만들어 놨는데 저거를 이제 구매,장바구니랑 연결을 해야되는데 DB영역이니 버튼만 만들어 놓음. */}
-                            {/* 그리고 장바구니 추가하면 혹시 가능하면 NavBar에 있는 장바구니에 알림 표시기능 있으면 좋을듯 */}
-
-                        </ListGroup.Item>
-                        <ListGroup.Item id="ram2">
-                            <table class="table table-hover">
-                                <tr>
-                                    <td class="pricewidth" rowspan="4">
-                                        <img
-                                            src={process.env.PUBLIC_URL + '/ram_test_image.png'}
-                                            width='200'
-                                            height='200'
-                                            alt="test_image"/>
-
-                                    </td>
-                                    <td colspan="3">
-                                        <h4>제품명 : SAMSUNG 8GB</h4>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <span>상세 사양</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>코어 : 8코어</td>
-                                    <td>스레드 : 8스레드</td>
-                                    <td>세대 : 9세대</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-7">
-                                                    <h2>가격 : 400,000</h2>
-                                                </div>
-                                                <div class="col-2">
-                                                    <React.Fragment>
-                                                        <button type="button" class="btn btn-outline-primary" onClick={openModal}>구매하기</button>
-                                                        <Modal open={modalOpen} close={closeModal} header="구매 페이지"></Modal>
-                                                        {/* header 부분에 텍스트를 입력한다. */}
-
-                                                        {/* Modal.js <main> { props.children } </main>에 내용이 입력된다.  */}
-                                                    </React.Fragment>
-                                                </div>
-                                                <div class="col-3">
-                                                    <button type="button" class="btn btn-outline-warning">장바구니 추가</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-
-                                </tr>
-                            </table>
-                        </ListGroup.Item>
-                        <ListGroup.Item id="ram3">
-                            <table class="table table-hover">
-                                <tr>
-                                    <td class="pricewidth" rowspan="4">
-                                        <img
-                                            src={process.env.PUBLIC_URL + '/ram_test_image.png'}
-                                            width='200'
-                                            height='200'
-                                            alt="test_image"/>
-
-                                    </td>
-                                    <td colspan="3">
-                                        <h4>제품명 : SAMSUNG 16GB</h4>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <span>상세 사양</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>코어 : 8코어</td>
-                                    <td>스레드 : 8스레드</td>
-                                    <td>세대 : 9세대</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-7">
-                                                    <h2>가격 : 400,000</h2>
-                                                </div>
-                                                <div class="col-2">
-                                                    <React.Fragment>
-                                                        <button type="button" class="btn btn-outline-primary" onClick={openModal}>구매하기</button>
-                                                        <Modal open={modalOpen} close={closeModal} header="구매 페이지"></Modal>
-                                                        {/* header 부분에 텍스트를 입력한다. */}
-
-                                                        {/* Modal.js <main> { props.children } </main>에 내용이 입력된다.  */}
-                                                    </React.Fragment>
-                                                </div>
-                                                <div class="col-3">
-                                                    <button type="button" class="btn btn-outline-warning">장바구니 추가</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-
-                                </tr>
-                            </table>
-
-                        </ListGroup.Item>
-                        <ListGroup.Item id="ram4">
-                            <table class="table table-hover">
-                                <tr>
-                                    <td class="pricewidth" rowspan="4">
-                                        <img
-                                            src={process.env.PUBLIC_URL + '/ram_test_image.png'}
-                                            width='200'
-                                            height='200'
-                                            alt="test_image"/>
-
-                                    </td>
-                                    <td colspan="3">
-                                        <h4>제품명 : SAMSUNG 32GB</h4>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <span>상세 사양</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>코어 : 8코어</td>
-                                    <td>스레드 : 8스레드</td>
-                                    <td>세대 : 9세대</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-7">
-                                                    <h2>가격 : 400,000</h2>
-                                                </div>
-                                                <div class="col-2">
-                                                    <React.Fragment>
-                                                        <button type="button" class="btn btn-outline-primary" onClick={openModal}>구매하기</button>
-                                                        <Modal open={modalOpen} close={closeModal} header="구매 페이지"></Modal>
-                                                        {/* header 부분에 텍스트를 입력한다. */}
-
-                                                        {/* Modal.js <main> { props.children } </main>에 내용이 입력된다.  */}
-                                                    </React.Fragment>
-                                                </div>
-                                                <div class="col-3">
-                                                    <button type="button" class="btn btn-outline-warning">장바구니 추가</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-
-                                </tr>
-                            </table>
-                        </ListGroup.Item>
+                    <table class="table table-hover">
+                        {renderProducts3()}    
+                    </table>
                     </ListGroup>
                 </Tab>
             </Tabs>
+            ) : (
+            <table class="table table-hover">
+                    {(page == PAGE_CART && user) && <div><Card.Header>장바구니</Card.Header>{renderCart()}</div>}
+                    {(page == PAGE_CART1 && user) && <div><Card.Header>구매내역</Card.Header>{renderCart1()}</div>} 
+            </table>
+            )}
+
+
             {/* 43~700번 줄까지 Home페이지 상품 리스트 출력 코드 (21-04-15 차재현) */}
             <script src="/__/firebase/8.4.1/firebase-app.js"></script>
 

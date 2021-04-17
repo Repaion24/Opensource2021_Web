@@ -50,13 +50,13 @@ const login = (props) => {
             <div className = "btnContainer">
                 {hasAccount ? (
                     <>
-                    <button size="lg" type="button" class = "btn btn-success" onClick={handleLogin} block>로그인</button>
-                    <p>계정이 없으신가요 ? <span onClick={() => setHasAccount(!hasAccount)}><font color="orange">회원가입</font></span></p>
+                    <button  size="lg" type="button" class = "btn btn-warning" onClick={handleSignup} block>회원가입</button>
+                    <p>계정이 있으신가요 ? <span onClick={() => setHasAccount(!hasAccount)}><font color="green">로그인</font></span></p>
                     </>
                 ) : (
                     <>
-                    <button  size="lg" type="button" class = "btn btn-warning" onClick={handleSignup} block>회원가입</button>
-                    <p>계정이 있으신가요 ? <span onClick={() => setHasAccount(!hasAccount)}><font color="green">로그인</font></span></p>
+                    <button size="lg" type="button" class = "btn btn-success" onClick={handleLogin} block>로그인</button>
+                    <p>계정이 없으신가요 ? <span onClick={() => setHasAccount(!hasAccount)}><font color="orange">회원가입</font></span></p>
                     </>
                 )}
             </div>
