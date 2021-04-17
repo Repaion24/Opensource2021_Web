@@ -10,7 +10,6 @@ import {
 import {useHistory} from 'react-router-dom'
 import More from './More'
 import Modal from '../components/Modal';
-
 const Home = () => {
 
     const [modalOpen, setModalOpen] = useState(false);
@@ -23,6 +22,119 @@ const Home = () => {
     }
 
     let history = useHistory();
+
+const [products] = useState([
+    {
+        name : 'Intel CPU i7',
+        cost : '400,000',
+        core : '8코어',
+        thread : '8스레드',
+        g : '9세대',
+        image : process.env.PUBLIC_URL + '/cpu_test_image.png'
+    },
+    {
+        name : 'Intel CPU i9',
+        cost : '400,000',
+        core : '8코어',
+        thread : '8스레드',
+        g : '9세대',
+        image : process.env.PUBLIC_URL + '/cpu_test_image.png'
+    },
+    {
+        name : 'Intel CPU i5',
+        cost : '400,000',
+        core : '8코어',
+        thread : '8스레드',
+        g : '9세대',
+        image : process.env.PUBLIC_URL + '/cpu_test_image.png'
+    },
+    {
+        name : 'Intel CPU Pantium Gold',
+        cost : '400,000',
+        core : '8코어',
+        thread : '8스레드',
+        g : '9세대',
+        image : process.env.PUBLIC_URL + '/cpu_test_image.png'
+    }
+])
+
+
+const [products2] = useState([
+    {
+        name : 'NVidia GeForce RTX 3080',
+        cost : '400,000',
+        core : '8코어',
+        thread : '8스레드',
+        g : '9세대',
+        image : process.env.PUBLIC_URL + '/gpu_test_image.png'
+    },
+    {
+        name : 'NVidia GeForce RTX 2080',
+        cost : '400,000',
+        core : '8코어',
+        thread : '8스레드',
+        g : '9세대',
+        image : process.env.PUBLIC_URL + '/gpu_test_image.png'
+    },
+    {
+        name : 'NVidia GeForce GTX 1660 super',
+        cost : '400,000',
+        core : '8코어',
+        thread : '8스레드',
+        g : '9세대',
+        image : process.env.PUBLIC_URL + '/gpu_test_image.png'
+    },
+    {
+        name : 'AMD Radeon pro',
+        cost : '400,000',
+        core : '8코어',
+        thread : '8스레드',
+        g : '9세대',
+        image : process.env.PUBLIC_URL + '/gpu_test_image.png'
+    }
+])
+
+const [products3] = useState([
+    {
+        name : 'SAMSUNG 4GB',
+        cost : '400,000',
+        core : '8코어',
+        thread : '8스레드',
+        g : '9세대',
+        image : process.env.PUBLIC_URL + '/ram_test_image.png'
+    },
+    {
+        name : 'SAMSUNG 8GB',
+        cost : '400,000',
+        core : '8코어',
+        thread : '8스레드',
+        g : '9세대',
+        image : process.env.PUBLIC_URL + '/ram_test_image.png'
+    },
+    {
+        name : 'SAMSUNG 16GB',
+        cost : '400,000',
+        core : '8코어',
+        thread : '8스레드',
+        g : '9세대',
+        image : process.env.PUBLIC_URL + '/ram_test_image.png'
+    },
+    {
+        name : 'SAMSUNG 32GB',
+        cost : '400,000',
+        core : '8코어',
+        thread : '8스레드',
+        g : '9세대',
+        image : process.env.PUBLIC_URL + '/ram_test_image.png'
+    }
+])
+
+const [cart, setCart] = useState([]);
+
+const addToCart = (product) =>{
+
+    setCart([...cart, product]);
+}
 
     return (
         <div>
@@ -51,55 +163,22 @@ const Home = () => {
                     <ListGroup variant="flush">
                         <ListGroup.Item id="cpu1">
                             <table class="table table-hover">
-                                <tr>
-                                    <td class="pricewidth" rowspan="4">
-                                        <img
-                                            src={process.env.PUBLIC_URL + '/cpu_test_image.png'}
-                                            width='200'
-                                            height='200'
-                                            alt="test_image"/>
+                            <div>
+                                {products.map((product, idx)=>(
+                                    <div className="product" key={idx}>
+                                        <img src={product.image} alt={product.name}/>
+                                        <h3>{product.name}</h3>
+                                        <h4>{product.cost}</h4>
+                                        <h4>{product.core}</h4>
+                                        <h4>{product.thread}</h4>
+                                        <h4>{product.g}</h4>
+                                        <button onClick={()=>addToCart(product)}>장바구니 추가({cart.length})</button>
 
-                                    </td>
-                                    <td colspan="3">
-                                        <h4>제품명 : Intel CPU i7</h4>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <span>상세 사양</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>코어 : 8코어</td>
-                                    <td>스레드 : 8스레드</td>
-                                    <td>세대 : 9세대</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-7">
-                                                    <h2>가격 : 400,000</h2>
-                                                </div>
-                                                <div class="col-2">
-                                                    <React.Fragment>
-                                                        <button type="button" class="btn btn-outline-primary" onClick={openModal}>구매하기</button>
-                                                        <Modal open={modalOpen} close={closeModal} header="구매 페이지"></Modal>
-                                                        {/* header 부분에 텍스트를 입력한다. */}
-
-                                                        {/* Modal.js <main> { props.children } </main>에 내용이 입력된다.  */}
-                                                    </React.Fragment>
-                                                </div>
-                                                <div class="col-3">
-                                                    <button type="button" class="btn btn-outline-warning">장바구니 추가</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-
-                                </tr>
+                                </div>
+                                ))}
+                                </div>
                             </table>
-
+                            
                         </ListGroup.Item>
                         <ListGroup.Item id="cpu2">
                             <table class="table table-hover">
@@ -265,51 +344,20 @@ const Home = () => {
                         <ListGroup.Item id="gpu1">
                             <table class="table table-hover">
                                 <tr>
-                                    <td class="pricewidth" rowspan="4">
-                                        <img
-                                            src={process.env.PUBLIC_URL + '/gpu_test_image.png'}
-                                            width='200'
-                                            height='200'
-                                            alt="test_image"/>
+                                <div>
+                                {products2.map((product2, idx)=>(
+                                    <div className="product2" key={idx}>
+                                        <img src={product2.image} alt={product2.name}/>
+                                        <h3>{product2.name}</h3>
+                                        <h4>{product2.cost}</h4>
+                                        <h4>{product2.core}</h4>
+                                        <h4>{product2.thread}</h4>
+                                        <h4>{product2.g}</h4>
+                                        <button onClick={()=>addToCart(product2)}>장바구니 추가({cart.length})</button>
 
-                                    </td>
-                                    <td colspan="3">
-                                        <h4>제품명 : NVidia GeForce RTX 3080</h4>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <span>상세 사양</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>코어 : 8코어</td>
-                                    <td>스레드 : 8스레드</td>
-                                    <td>세대 : 9세대</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-7">
-                                                    <h2>가격 : 400,000</h2>
-                                                </div>
-                                                <div class="col-2">
-                                                    <React.Fragment>
-                                                        <button type="button" class="btn btn-outline-primary" onClick={openModal}>구매하기</button>
-                                                        <Modal open={modalOpen} close={closeModal} header="구매 페이지"></Modal>
-                                                        {/* header 부분에 텍스트를 입력한다. */}
-
-                                                        {/* Modal.js <main> { props.children } </main>에 내용이 입력된다.  */}
-                                                    </React.Fragment>
-                                                </div>
-                                                <div class="col-3">
-                                                    <button type="button" class="btn btn-outline-warning">장바구니 추가</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-
+                                </div>
+                                ))}
+                                </div>
                                 </tr>
                             </table>
 
@@ -484,52 +532,20 @@ const Home = () => {
                         <ListGroup.Item id="ram1">
                             <table class="table table-hover">
                                 <tr>
-                                    <td class="pricewidth" rowspan="4">
-                                        <img
-                                            src={process.env.PUBLIC_URL + '/ram_test_image.png'}
-                                            width='200'
-                                            height='200'
-                                            alt="test_image"/>
+                                <div>
+                                {products3.map((product3, idx)=>(
+                                    <div className="product3" key={idx}>
+                                        <img src={product3.image} alt={product3.name}/>
+                                        <h3>{product3.name}</h3>
+                                        <h4>{product3.cost}</h4>
+                                        <h4>{product3.core}</h4>
+                                        <h4>{product3.thread}</h4>
+                                        <h4>{product3.g}</h4>
+                                        <button onClick={()=>addToCart(product3)}>장바구니 추가({cart.length})</button>
 
-                                    </td>
-                                    <td colspan="3">
-                                        <h4>제품명 : SAMSUNG 4GB
-                                        </h4>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <span>상세 사양</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>코어 : 8코어</td>
-                                    <td>스레드 : 8스레드</td>
-                                    <td>세대 : 9세대</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-7">
-                                                    <h2>가격 : 400,000</h2>
-                                                </div>
-                                                <div class="col-2">
-                                                    <React.Fragment>
-                                                        <button type="button" class="btn btn-outline-primary" onClick={openModal}>구매하기</button>
-                                                        <Modal open={modalOpen} close={closeModal} header="구매 페이지"></Modal>
-                                                        {/* header 부분에 텍스트를 입력한다. */}
-
-                                                        {/* Modal.js <main> { props.children } </main>에 내용이 입력된다.  */}
-                                                    </React.Fragment>
-                                                </div>
-                                                <div class="col-3">
-                                                    <button type="button" class="btn btn-outline-warning">장바구니 추가</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-
+                                </div>
+                                ))}
+                                </div>
                                 </tr>
                             </table>
 
