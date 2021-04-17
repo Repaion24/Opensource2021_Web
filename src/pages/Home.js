@@ -22,6 +22,7 @@ const Home = (props) => {
         products1,
         products2,
         products3,
+        products4,
         PAGE_PRODUCT,
         PAGE_CART,
         PAGE_CART1,
@@ -40,6 +41,8 @@ const Home = (props) => {
         renderProducts1,
         renderProducts2,
         renderProducts3,
+        renderProducts4,
+        renderProducts5,
         user
     } = props;
 
@@ -89,8 +92,8 @@ const Home = (props) => {
                             </table>
                     </ListGroup>
                 </Tab>
-                <Tab eventKey="gpu" title="GPU">
-                <Card.Header><h4>GPU 목록</h4></Card.Header>
+                <Tab eventKey="ram" title="RAM">
+                <Card.Header><h4>RAM 목록</h4></Card.Header>
                     {/* 여기는 GPU Tab 부분 */}
 
                     <ListGroup variant="flush">
@@ -100,8 +103,8 @@ const Home = (props) => {
                     </ListGroup>
                 </Tab>
 
-                <Tab eventKey="ram" title="RAM">
-                <Card.Header><h4>RAM 목록</h4></Card.Header>
+                <Tab eventKey="gpu" title="GPU">
+                <Card.Header><h4>GPU 목록</h4></Card.Header>
                     {/* 여기는 RAM Tab 부분 */}
                     <ListGroup variant="flush">
                     <table class="table table-hover">
@@ -109,7 +112,31 @@ const Home = (props) => {
                     </table>
                     </ListGroup>
                 </Tab>
+                
+                <Tab eventKey="board" title="BOARD">
+                <Card.Header><h4>Board 목록</h4></Card.Header>
+                    {/* 여기는 RAM Tab 부분 */}
+                    <ListGroup variant="flush">
+                    <table class="table table-hover">
+                        {renderProducts4()}    
+                    </table>
+                    </ListGroup>
+                </Tab>
+
+                <Tab eventKey="power" title="POWER">
+                <Card.Header><h4>power 목록</h4></Card.Header>
+                    {/* 여기는 RAM Tab 부분 */}
+                    <ListGroup variant="flush">
+                    <table class="table table-hover">
+                        {renderProducts5()}    
+                    </table>
+                    </ListGroup>
+                </Tab>
+                
             </Tabs>
+            
+
+            
             ) : (
             <table class="table table-hover">
                     {(page == PAGE_CART && user) && <div><Card.Header>장바구니</Card.Header>{renderCart()}</div>}

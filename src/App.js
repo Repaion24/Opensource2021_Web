@@ -17,7 +17,6 @@ import Login from './pages/Login'
 import Game from './pages/Game'
 import Broadcast from './pages/Broadcast'
 import Office from './pages/Office'
-import More from './pages/More'
 import Purchasehistory from './pages/Purchasehistory'
 import Modal from './components/Modal'
 import Modal1 from './components/Modal1'
@@ -144,203 +143,553 @@ function App() {
     const [products] = useState([
         {
             name : 'Intel CPU i7',
-            cost : '400,000',
+            cost : '300,000',
             core : '8코어',
-            thread : '8스레드',
-            g : '9세대',
-            image : process.env.PUBLIC_URL + '/cpu_test_image.png'
+            thread : '16스레드',
+            g : '10세대',
+            image : process.env.PUBLIC_URL + '/Intel CPU i7.jpg',
+            maker : 'Intel'
         },
         {
             name : 'Intel CPU i9',
             cost : '400,000',
-            core : '8코어',
-            thread : '8스레드',
-            g : '9세대',
-            image : process.env.PUBLIC_URL + '/cpu_test_image.png'
+            core : '10코어',
+            thread : '20스레드',
+            g : '10세대',
+            image : process.env.PUBLIC_URL + '/Intel CPU i9.jpg',
+            maker : 'Intel'
+            
         },
         {
             name : 'Intel CPU i5',
-            cost : '400,000',
-            core : '8코어',
-            thread : '8스레드',
-            g : '9세대',
-            image : process.env.PUBLIC_URL + '/cpu_test_image.png'
+            cost : '200,000',
+            core : '6코어',
+            thread : '12스레드',
+            g : '10세대',
+            image : process.env.PUBLIC_URL + '/Intel CPU i5.jpg',
+            maker : 'Intel'
         },
         {
             name : 'Intel CPU Pantium Gold',
-            cost : '400,000',
+            cost : '200,000',
+            core : '6코어',
+            thread : '12스레드',
+            g : '11세대',
+            image : process.env.PUBLIC_URL + '/Intel CPU Pantium Gold.jpg',
+            maker : 'Intel'
+        },
+        {
+            name : 'Intel 펜티엄 골드',
+            cost : '200,000',
+            core : '6코어',
+            thread : '12스레드',
+            g : '11세대',
+            image : process.env.PUBLIC_URL + '/Intel pentium gold.jpg',
+            maker : 'Intel'
+            
+        },
+        {
+            name : 'Intel 셀러론',
+            cost : '60,000',
+            core : '2코어',
+            thread : '2스레드',
+            g : '10세대',
+            image : process.env.PUBLIC_URL + '/Intel celleron.jpg',
+            maker : 'Intel'
+            
+        },
+        {
+            name : 'AMD Ryzen9 ',
+            cost : '800,000',
+            core : '12코어',
+            thread : '24스레드',
+            g : '4세대',
+            image : process.env.PUBLIC_URL + '/AMD Ryzen9.jpg',
+            maker : 'AMD'
+            
+        },
+        {
+            name : 'AMD Ryzen7',
+            cost : '500,000',
             core : '8코어',
-            thread : '8스레드',
-            g : '9세대',
-            image : process.env.PUBLIC_URL + '/cpu_test_image.png'
-        },    {
+            thread : '16스레드',
+            g : '4세대',
+            image : process.env.PUBLIC_URL + '/AMD Ryzen7.jpg',
+            maker : 'AMD'
+            
+        },
+        {
+            name : 'AMD Ryzen5',
+            cost : '300,000',
+            core : '6코어',
+            thread : '12스레드',
+            g : '4세대',
+            image : process.env.PUBLIC_URL + '/AMD Ryzen5.jpg',
+            maker : 'AMD'
+            
+        },
+        {
+            name : 'AMD Ryzen3',
+            cost : '200,000',
+            core : '6코어',
+            thread : '12스레드',
+            g : '3세대',
+            image : process.env.PUBLIC_URL + '/AMD Ryzen3.jpg',
+            maker : 'AMD'
+            
+        },
+        {
             name : 'SAMSUNG 4GB',
-            cost : '400,000',
-            core : '8코어',
-            thread : '8스레드',
-            g : '9세대',
-            image : process.env.PUBLIC_URL + '/ram_test_image.png'
+            cost : '30,000',
+            image : process.env.PUBLIC_URL + '/SAMSUNG 4GB.jpg',
+            core : 'samsung'
         },
         {
             name : 'SAMSUNG 8GB',
-            cost : '400,000',
-            core : '8코어',
-            thread : '8스레드',
-            g : '9세대',
-            image : process.env.PUBLIC_URL + '/ram_test_image.png'
+            cost : '40,000',
+            image : process.env.PUBLIC_URL + '/SAMSUNG 8GB.jpg',
+            core : 'samsung'
         },
         {
             name : 'SAMSUNG 16GB',
-            cost : '400,000',
-            core : '8코어',
-            thread : '8스레드',
-            g : '9세대',
-            image : process.env.PUBLIC_URL + '/ram_test_image.png'
+            cost : '90,000',
+            image : process.env.PUBLIC_URL + '/SAMSUNG 16GB.jpg',
+            core : 'samsung'
         },
         {
             name : 'SAMSUNG 32GB',
-            cost : '400,000',
-            core : '8코어',
-            thread : '8스레드',
-            g : '9세대',
-            image : process.env.PUBLIC_URL + '/ram_test_image.png'
+            cost : '180,000',
+            image : process.env.PUBLIC_URL + '/SAMSUNG 32GB.jpg',
+            core : 'samsung'
         },
         {
-            name : 'NVidia GeForce RTX 3080',
+            name : 'SAMSUNG 64GB (DDR4)',
             cost : '400,000',
-            core : '8코어',
-            thread : '8스레드',
-            g : '9세대',
-            image : process.env.PUBLIC_URL + '/gpu_test_image.png'
+            image : process.env.PUBLIC_URL + '/SAMSUNG 64GB (DDR4).jpg',
+            core : 'samsung'
+        },
+        {
+            name : 'G.SKILL AEGIS 8GB (DDR4)',
+            cost : '50,000',
+            image : process.env.PUBLIC_URL + '/G.SKILL AEGIS 8GB (DDR4).jpg',
+            core : 'G.SKILL'
+        },
+        {
+            name : 'G.SKILL RIPJAWS V VB 8GB',
+            cost : '60,000',
+            image : process.env.PUBLIC_URL + '/G.SKILL RIPJAWS V VB 8GB.jpg',
+            core : 'G.SKILL'
+        },
+        {
+            name : 'G.SKILL TRIDENT Z 16GB',
+            cost : '200,000',
+            image : process.env.PUBLIC_URL + '/G.SKILL TRIDENT Z 16GB.jpg',
+            core : 'G.SKILL'
+        },
+        {
+            name : 'TeamGroup T-Force 32GB',
+            cost : '300,000',
+            image : process.env.PUBLIC_URL + '/SAMSUNG 8GB.jpg',
+            core : 'TeamGroup'
+        },
+        {
+            name : 'TeamGroup T-CREAT 64GB',
+            cost : '600,000',
+            image : process.env.PUBLIC_URL + '/TeamGroup T-CREAT 64GB.jpg',
+            core : 'TeamGroup'
+        },
+        {
+            name : 'AMD 라데온 RX 560',
+            cost : '300,000',
+            core : '메모리 : 2GB',
+            image : process.env.PUBLIC_URL + 'AMD 라데온 RX 560.jpg',
+            thread : 'AMD'
         },
         {
             name : 'NVidia GeForce RTX 2080',
-            cost : '400,000',
-            core : '8코어',
-            thread : '8스레드',
-            g : '9세대',
-            image : process.env.PUBLIC_URL + '/gpu_test_image.png'
+            cost : '1,300,000',
+            core : '메모리 : 8GB',
+            image : process.env.PUBLIC_URL + '/NVidia GeForce RTX 2080.jpg',
+            thread : 'NVdia'
         },
         {
             name : 'NVidia GeForce GTX 1660 super',
-            cost : '400,000',
-            core : '8코어',
-            thread : '8스레드',
-            g : '9세대',
-            image : process.env.PUBLIC_URL + '/gpu_test_image.png'
+            cost : '700,000',
+            core : '메모리 : 6GB',
+            image : process.env.PUBLIC_URL + '/NVidia GeForce GTX 1660 super.jpg',
+            thread : 'NVdia'
         },
         {
             name : 'AMD Radeon pro',
-            cost : '400,000',
-            core : '8코어',
-            thread : '8스레드',
-            g : '9세대',
-            image : process.env.PUBLIC_URL + '/gpu_test_image.png'
+            cost : '2,500,000',
+            core : '메모리 : 16GB',
+            image : process.env.PUBLIC_URL + '/AMD Radeon pro.jpg',
+            thread : 'AMD'
+        },
+        {
+            name : 'RTX 3060 ti',
+            cost : '1,800,000',
+            core : '메모리 : 16GB',
+            image : process.env.PUBLIC_URL + '/RTX 3060 ti.jpg',
+            thread : '지포스'
+        },
+        {
+            name : 'RTX 2060',
+            cost : '600,000',
+            core : '메모리 : 6GB',
+            image : process.env.PUBLIC_URL + 'RTX 2060.jpg',
+            thread : '지포스'
+        },
+        {
+            name : 'Nvidia Titan V',
+            cost : '5,000,000',
+            core : '메모리 : 12GB',
+            image : process.env.PUBLIC_URL + '/Nvidia Titan V.jpg',
+            thread : 'NVida'
+        },
+        {
+            name : 'AMD 라데온 RX 6900 XT',
+            cost : '2,100,000',
+            core : '메모리 : 16GB',
+            image : process.env.PUBLIC_URL + '/AMD 라데온 RX 6900 XT.jpg',
+            thread : 'AMD'
+        },
+        {
+            name : 'AMD 라데온 RX Vega 64',
+            cost : '1,00,000',
+            core : '메모리 :8GB',
+            image : process.env.PUBLIC_URL + '/AMD 라데온 RX Vega 64.jpg',
+            thread : 'AMD'
+        },
+        {
+            name : 'ASRock B560M PRO4 에즈윈',
+            cost : '130,000',
+            core : '메모리 :128GB',
+            thread : '슬롯 갯수 : 4개',
+            g : 'ASRock',
+            image : process.env.PUBLIC_URL + '/ASRock B560M PRO4 에즈윈.jpg',
+            
+        },
+        {
+            name : 'ASRock B560M PRO4 에즈윈',
+            cost : '130,000',
+            core : '메모리 :128GB',
+            thread : '슬롯 갯수 : 4개',
+            g : 'ASRock',
+            image : process.env.PUBLIC_URL + '/ASRock B560M PRO4 에즈윈.jpg',
+            
+        },
+        {
+            name : 'MSI MAG B450M 박격포 맥스',
+            cost : '90,000',
+            core : '메모리 :128GB',
+            thread : '슬롯 갯수 : 4개',
+            g : 'MSI',
+            image : process.env.PUBLIC_URL + '/MSI MAG B450M 박격포 맥스.jpg',
+            
+        },
+        {
+            name : '마이크로닉스 Classic II 600W 80PLUS 230V EU',
+            cost : '60,000',
+            core : '출력 : 600W',
+            thread : '마이크로닉스',
+            image : process.env.PUBLIC_URL + '/마이크로닉스 Classic II 600W 80PLUS 230V EU.jpg',
+        },
+        {
+            name : 'ABKO SUITMASTER SETTLER 600W 80PLUS Standard 230V EU',
+            cost : '50,000',
+            core : '출력 : 600W',
+            thread : 'ABKO',
+            image : process.env.PUBLIC_URL + '/ABKO SUITMASTER SETTLER 600W 80PLUS Standard 230V EU.jpg',
+        },
+        {
+            name : 'FSP HYDRO G PRO 1000W 80PLUS Gold Full Modular',
+            cost : '150,000',
+            core : '출력 : 1000W',
+            thread : 'FSP',
+            image : process.env.PUBLIC_URL + '/	FSP HYDRO G PRO 1000W 80PLUS Gold Full Modular.jpg',
         }
     ])
     
     const [products1] = useState([
         {
             name : 'Intel CPU i7',
-            cost : '400,000',
+            cost : '300,000',
             core : '8코어',
-            thread : '8스레드',
-            g : '9세대',
-            image : process.env.PUBLIC_URL + '/cpu_test_image.png'
+            thread : '16스레드',
+            g : '10세대',
+            image : process.env.PUBLIC_URL + '/Intel CPU i7.jpg',
+            maker : 'Intel'
         },
         {
             name : 'Intel CPU i9',
             cost : '400,000',
-            core : '8코어',
-            thread : '8스레드',
-            g : '9세대',
-            image : process.env.PUBLIC_URL + '/cpu_test_image.png'
+            core : '10코어',
+            thread : '20스레드',
+            g : '10세대',
+            image : process.env.PUBLIC_URL + '/Intel CPU i9.jpg',
+            maker : 'Intel'
+            
         },
         {
             name : 'Intel CPU i5',
-            cost : '400,000',
-            core : '8코어',
-            thread : '8스레드',
-            g : '9세대',
-            image : process.env.PUBLIC_URL + '/cpu_test_image.png'
+            cost : '200,000',
+            core : '6코어',
+            thread : '12스레드',
+            g : '10세대',
+            image : process.env.PUBLIC_URL + '/Intel CPU i5.jpg',
+            maker : 'Intel'
         },
         {
             name : 'Intel CPU Pantium Gold',
-            cost : '400,000',
+            cost : '200,000',
+            core : '6코어',
+            thread : '12스레드',
+            g : '11세대',
+            image : process.env.PUBLIC_URL + '/Intel CPU Pantium Gold.jpg',
+            maker : 'Intel'
+        },
+        {
+            name : 'Intel 펜티엄 골드',
+            cost : '200,000',
+            core : '6코어',
+            thread : '12스레드',
+            g : '11세대',
+            image : process.env.PUBLIC_URL + '/Intel pentium gold.jpg',
+            maker : 'Intel'
+            
+        },
+        {
+            name : 'Intel 셀러론',
+            cost : '60,000',
+            core : '2코어',
+            thread : '2스레드',
+            g : '10세대',
+            image : process.env.PUBLIC_URL + '/Intel celleron.jpg',
+            maker : 'Intel'
+            
+        },
+        {
+            name : 'AMD Ryzen9 ',
+            cost : '800,000',
+            core : '12코어',
+            thread : '24스레드',
+            g : '4세대',
+            image : process.env.PUBLIC_URL + '/AMD Ryzen9.jpg',
+            maker : 'AMD'
+            
+        },
+        {
+            name : 'AMD Ryzen7',
+            cost : '500,000',
             core : '8코어',
-            thread : '8스레드',
-            g : '9세대',
-            image : process.env.PUBLIC_URL + '/cpu_test_image.png'
-    }
+            thread : '16스레드',
+            g : '4세대',
+            image : process.env.PUBLIC_URL + '/AMD Ryzen7.jpg',
+            maker : 'AMD'
+            
+        },
+        {
+            name : 'AMD Ryzen5',
+            cost : '300,000',
+            core : '6코어',
+            thread : '12스레드',
+            g : '4세대',
+            image : process.env.PUBLIC_URL + '/AMD Ryzen5.jpg',
+            maker : 'AMD'
+            
+        },
+        {
+            name : 'AMD Ryzen3',
+            cost : '200,000',
+            core : '6코어',
+            thread : '12스레드',
+            g : '3세대',
+            image : process.env.PUBLIC_URL + '/AMD Ryzen3.jpg',
+            maker : 'AMD'
+            
+        }
     ])
     
     const [products2] = useState([
         {
-            name : 'NVidia GeForce RTX 3080',
-            cost : '400,000',
-            core : '8코어',
-            thread : '8스레드',
-            g : '9세대',
-            image : process.env.PUBLIC_URL + '/gpu_test_image.png'
+            name : 'SAMSUNG 4GB',
+            cost : '30,000',
+            image : process.env.PUBLIC_URL + '/SAMSUNG 4GB.jpg',
+            core : 'samsung'
         },
         {
-            name : 'NVidia GeForce RTX 2080',
-            cost : '400,000',
-            core : '8코어',
-            thread : '8스레드',
-            g : '9세대',
-            image : process.env.PUBLIC_URL + '/gpu_test_image.png'
+            name : 'SAMSUNG 8GB',
+            cost : '40,000',
+            image : process.env.PUBLIC_URL + '/SAMSUNG 8GB.jpg',
+            core : 'samsung'
         },
         {
-            name : 'NVidia GeForce GTX 1660 super',
-            cost : '400,000',
-            core : '8코어',
-            thread : '8스레드',
-            g : '9세대',
-            image : process.env.PUBLIC_URL + '/gpu_test_image.png'
+            name : 'SAMSUNG 16GB',
+            cost : '90,000',
+            image : process.env.PUBLIC_URL + '/SAMSUNG 16GB.jpg',
+            core : 'samsung'
         },
         {
-            name : 'AMD Radeon pro',
+            name : 'SAMSUNG 32GB',
+            cost : '180,000',
+            image : process.env.PUBLIC_URL + '/SAMSUNG 32GB.jpg',
+            core : 'samsung'
+        },
+        {
+            name : 'SAMSUNG 64GB (DDR4)',
             cost : '400,000',
-            core : '8코어',
-            thread : '8스레드',
-            g : '9세대',
-            image : process.env.PUBLIC_URL + '/gpu_test_image.png'
+            image : process.env.PUBLIC_URL + '/SAMSUNG 64GB (DDR4).jpg',
+            core : 'samsung'
+        },
+        {
+            name : 'G.SKILL AEGIS 8GB (DDR4)',
+            cost : '50,000',
+            image : process.env.PUBLIC_URL + '/G.SKILL AEGIS 8GB (DDR4).jpg',
+            core : 'G.SKILL'
+        },
+        {
+            name : 'G.SKILL RIPJAWS V VB 8GB',
+            cost : '60,000',
+            image : process.env.PUBLIC_URL + '/G.SKILL RIPJAWS V VB 8GB.jpg',
+            core : 'G.SKILL'
+        },
+        {
+            name : 'G.SKILL TRIDENT Z 16GB',
+            cost : '200,000',
+            image : process.env.PUBLIC_URL + '/G.SKILL TRIDENT Z 16GB.jpg',
+            core : 'G.SKILL'
+        },
+        {
+            name : 'TeamGroup T-Force 32GB',
+            cost : '300,000',
+            image : process.env.PUBLIC_URL + '/SAMSUNG 8GB.jpg',
+            core : 'TeamGroup'
+        },
+        {
+            name : 'TeamGroup T-CREAT 64GB',
+            cost : '600,000',
+            image : process.env.PUBLIC_URL + '/TeamGroup T-CREAT 64GB.jpg',
+            core : 'TeamGroup'
         }
     ])
     
     const [products3] = useState([
         {
-            name : 'SAMSUNG 4GB',
-            cost : '400,000',
-            core : '8코어',
-            thread : '8스레드',
-            g : '9세대',
-            image : process.env.PUBLIC_URL + '/ram_test_image.png'
+            name : 'AMD 라데온 RX 560',
+            cost : '300,000',
+            core : '메모리 : 2GB',
+            image : process.env.PUBLIC_URL + 'AMD 라데온 RX 560.jpg',
+            thread : 'AMD'
         },
         {
-            name : 'SAMSUNG 8GB',
-            cost : '400,000',
-            core : '8코어',
-            thread : '8스레드',
-            g : '9세대',
-            image : process.env.PUBLIC_URL + '/ram_test_image.png'
+            name : 'NVidia GeForce RTX 2080',
+            cost : '1,300,000',
+            core : '메모리 : 8GB',
+            image : process.env.PUBLIC_URL + '/NVidia GeForce RTX 2080.jpg',
+            thread : 'NVdia'
         },
         {
-            name : 'SAMSUNG 16GB',
-            cost : '400,000',
-            core : '8코어',
-            thread : '8스레드',
-            g : '9세대',
-            image : process.env.PUBLIC_URL + '/ram_test_image.png'
+            name : 'NVidia GeForce GTX 1660 super',
+            cost : '700,000',
+            core : '메모리 : 6GB',
+            image : process.env.PUBLIC_URL + '/NVidia GeForce GTX 1660 super.jpg',
+            thread : 'NVdia'
         },
         {
-            name : 'SAMSUNG 32GB',
-            cost : '400,000',
-            core : '8코어',
-            thread : '8스레드',
-            g : '9세대',
-            image : process.env.PUBLIC_URL + '/ram_test_image.png'
+            name : 'AMD Radeon pro',
+            cost : '2,500,000',
+            core : '메모리 : 16GB',
+            image : process.env.PUBLIC_URL + '/AMD Radeon pro.jpg',
+            thread : 'AMD'
+        },
+        {
+            name : 'RTX 3060 ti',
+            cost : '1,800,000',
+            core : '메모리 : 16GB',
+            image : process.env.PUBLIC_URL + '/RTX 3060 ti.jpg',
+            thread : '지포스'
+        },
+        {
+            name : 'RTX 2060',
+            cost : '600,000',
+            core : '메모리 : 6GB',
+            image : process.env.PUBLIC_URL + 'RTX 2060.jpg',
+            thread : '지포스'
+        },
+        {
+            name : 'Nvidia Titan V',
+            cost : '5,000,000',
+            core : '메모리 : 12GB',
+            image : process.env.PUBLIC_URL + '/Nvidia Titan V.jpg',
+            thread : 'NVida'
+        },
+        {
+            name : 'AMD 라데온 RX 6900 XT',
+            cost : '2,100,000',
+            core : '메모리 : 16GB',
+            image : process.env.PUBLIC_URL + '/AMD 라데온 RX 6900 XT.jpg',
+            thread : 'AMD'
+        },
+        {
+            name : 'AMD 라데온 RX Vega 64',
+            cost : '1,00,000',
+            core : '메모리 :8GB',
+            image : process.env.PUBLIC_URL + '/AMD 라데온 RX Vega 64.jpg',
+            thread : 'AMD'
+        }
+    ])
+
+    const [products4] = useState([
+        {
+            name : 'ASRock B560M PRO4 에즈윈',
+            cost : '130,000',
+            core : '메모리 :128GB',
+            thread : '슬롯 갯수 : 4개',
+            g : 'ASRock',
+            image : process.env.PUBLIC_URL + '/ASRock B560M PRO4 에즈윈.jpg',
+            
+        },
+        {
+            name : 'ASRock B560M PRO4 에즈윈',
+            cost : '130,000',
+            core : '메모리 :128GB',
+            thread : '슬롯 갯수 : 4개',
+            g : 'ASRock',
+            image : process.env.PUBLIC_URL + '/ASRock B560M PRO4 에즈윈.jpg',
+            
+        },
+        {
+            name : 'MSI MAG B450M 박격포 맥스',
+            cost : '90,000',
+            core : '메모리 :128GB',
+            thread : '슬롯 갯수 : 4개',
+            g : 'MSI',
+            image : process.env.PUBLIC_URL + '/MSI MAG B450M 박격포 맥스.jpg',
+            
+        }
+    ])
+    const [products5] = useState([
+        {
+            name : '마이크로닉스 Classic II 600W 80PLUS 230V EU',
+            cost : '60,000',
+            core : '출력 : 600W',
+            thread : '마이크로닉스',
+            image : process.env.PUBLIC_URL + '/마이크로닉스 Classic II 600W 80PLUS 230V EU.jpg',
+        },
+        {
+            name : 'ABKO SUITMASTER SETTLER 600W 80PLUS Standard 230V EU',
+            cost : '50,000',
+            core : '출력 : 600W',
+            thread : 'ABKO',
+            image : process.env.PUBLIC_URL + '/ABKO SUITMASTER SETTLER 600W 80PLUS Standard 230V EU.jpg',
+        },
+        {
+            name : 'FSP HYDRO G PRO 1000W 80PLUS Gold Full Modular',
+            cost : '150,000',
+            core : '출력 : 1000W',
+            thread : 'FSP',
+            image : process.env.PUBLIC_URL + '/	FSP HYDRO G PRO 1000W 80PLUS Gold Full Modular.jpg',
         }
     ])
     
@@ -432,9 +781,10 @@ function App() {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>코어 : {product.core}</td>
-                                    <td>스레드 : {product.thread}</td>
-                                    <td>세대 : {product.g}</td>
+                                    <td> {product.core}</td>
+                                    <td> {product.thread}</td>
+                                    <td> {product.g}</td>
+                                    <td> {product.maker}</td>
                                 </tr>
                                 <tr>
                                     <td colspan="3">
@@ -445,7 +795,7 @@ function App() {
                                                 </div>
                                                 <div class="col-2">
                                                     <React.Fragment>
-                                                        <button type="button" class="btn btn-outline-primary" onClick={ ()=>confirm1(product) }>구매하기</button>
+                                                        <button type="button" class="btn btn-outline-primary" onClick={ ()=>confirm1(product) }>구매</button>
                                                         <Modal open={modalOpen} close={closeModal} header="구매 페이지"></Modal>
                                                         <Modal1 open={modalOpen1} close={closeModal1} header="로그인이 필요합니다."></Modal1>
                                                         {/* header 부분에 텍스트를 입력한다. */}
@@ -455,7 +805,7 @@ function App() {
                                                 </div>
                                                 <div class="col-3">
                                                 <React.Fragment>
-                                                    <button onClick={()=>addToCart(product)} type="button" class="btn btn-outline-warning">장바구니 추가</button>
+                                                    <button onClick={()=>addToCart(product)} type="button" class="btn btn-outline-warning">장바구니</button>
                                                     <Modal2 open={modalOpen2} close={closeModal2} header="장바구니 추가"></Modal2>
                                                 </React.Fragment>
                                                 </div>
@@ -495,9 +845,10 @@ function App() {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>코어 : {products1.core}</td>
-                                    <td>스레드 : {products1.thread}</td>
-                                    <td>세대 : {products1.g}</td>
+                                    <td> {products1.core}</td>
+                                    <td> {products1.thread}</td>
+                                    <td> {products1.g}</td>
+                                    <td> {products1.maker}</td>
                                 </tr>
                                 <tr>
                                     <td colspan="3">
@@ -508,7 +859,7 @@ function App() {
                                                 </div>
                                                 <div class="col-2">
                                                     <React.Fragment>
-                                                        <button type="button" class="btn btn-outline-primary" onClick={ ()=>confirm1(products1) }>구매하기</button>
+                                                        <button type="button" class="btn btn-outline-primary" onClick={ ()=>confirm1(products1) }>구매</button>
                                                         <Modal open={modalOpen} close={closeModal} header="구매 페이지"></Modal>
                                                         <Modal1 open={modalOpen1} close={closeModal1} header="로그인이 필요합니다."></Modal1>
                                                         {/* header 부분에 텍스트를 입력한다. */}
@@ -556,9 +907,10 @@ function App() {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>코어 : {products.core}</td>
-                                    <td>스레드 : {products.thread}</td>
-                                    <td>세대 : {products.g}</td>
+                                    <td> {products.core}</td>
+                                    <td> {products.thread}</td>
+                                    <td> {products.g}</td>
+                                    <td> {products.maker}</td>
                                 </tr>
                                 <tr>
                                     <td colspan="3">
@@ -569,7 +921,7 @@ function App() {
                                                 </div>
                                                 <div class="col-2">
                                                     <React.Fragment>
-                                                        <button type="button" class="btn btn-outline-primary" onClick={ ()=>confirm1(products) }>구매하기</button>
+                                                        <button type="button" class="btn btn-outline-primary" onClick={ ()=>confirm1(products) }>구매</button>
                                                         <Modal open={modalOpen} close={closeModal} header="구매 페이지"></Modal>
                                                         <Modal1 open={modalOpen1} close={closeModal1} header="로그인이 필요합니다."></Modal1>
                                                         
@@ -618,9 +970,10 @@ function App() {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>코어 : {products.core}</td>
-                                    <td>스레드 : {products.thread}</td>
-                                    <td>세대 : {products.g}</td>
+                                    <td> {products.core}</td>
+                                    <td> {products.thread}</td>
+                                    <td> {products.g}</td>
+                                    <td> {products.maker}</td>
                                 </tr>
                                 <tr>
                                     <td colspan="3">
@@ -631,7 +984,7 @@ function App() {
                                                 </div>
                                                 <div class="col-2">
                                                     <React.Fragment>
-                                                        <button type="button" class="btn btn-outline-primary" onClick = { ()=>confirm1(products) }>구매하기</button>
+                                                        <button type="button" class="btn btn-outline-primary" onClick = { ()=>confirm1(products) }>구매</button>
                                                         <Modal open={modalOpen} close={closeModal} header="구매 페이지"></Modal>
                                                         <Modal1 open={modalOpen1} close={closeModal1} header="로그인이 필요합니다."></Modal1>
                                                         {/* header 부분에 텍스트를 입력한다. */}
@@ -640,6 +993,129 @@ function App() {
                                                 </div>
                                                 <div class="col-3">
                                             <button onClick={()=>addToCart(products)} type="button" class="btn btn-outline-warning">장바구니 추가</button>
+                                            <Modal2 open={modalOpen2} close={closeModal2} header="장바구니 추가"></Modal2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </ListGroup.Item>
+            </div>
+        ))}
+        </div>
+    )
+    const renderProducts4 = () =>(
+        <div>
+            {products4.map((products, idx)=>(
+
+            <div className="product" key={idx}>
+                <ListGroup.Item>
+                    <table class="table table-hover">
+                        <tr>
+                            <td class="pricewidth" rowspan="4">
+                                <img
+                                src={products.image}
+                                width='200'
+                                height='200'
+                                alt="test_image"/>
+                            </td>
+                            <td colspan="3">
+                                <h4>제품명 : {products.name}</h4>
+                            </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        <span>상세 사양</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> {products.core}</td>
+                                    <td> {products.thread}</td>
+                                    <td> {products.g}</td>
+                                    <td> {products.maker}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-7">
+                                                    <h2>가격 : {products.cost}</h2>
+                                                </div>
+                                                <div class="col-2">
+                                                    <React.Fragment>
+                                                        <button type="button" class="btn btn-outline-primary" onClick={ ()=>confirm1(products) }>구매</button>
+                                                        <Modal open={modalOpen} close={closeModal} header="구매 페이지"></Modal>
+                                                        <Modal1 open={modalOpen1} close={closeModal1} header="로그인이 필요합니다."></Modal1>
+                                                        
+                                                        {/* header 부분에 텍스트를 입력한다. */}
+
+                                                        {/* Modal.js <main> { props.children } </main>에 내용이 입력된다.  */}
+                                                    </React.Fragment>
+                                                </div>
+                                                <div class="col-3">
+                                            <button onClick={()=>addToCart(products)} type="button" class="btn btn-outline-warning">장바구니 추가</button>
+                                            <Modal2 open={modalOpen2} close={closeModal2} header="장바구니 추가"></Modal2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </ListGroup.Item>
+            </div>
+        ))}
+        </div>
+    )
+    const renderProducts5 = () =>(
+        <div>
+            {products5.map((products1, idx)=>(
+
+            <div className="product" key={idx}>
+                <ListGroup.Item>
+                    <table class="table table-hover">
+                        <tr>
+                            <td class="pricewidth" rowspan="4">
+                                <img
+                                src={products1.image}
+                                width='200'
+                                height='200'
+                                alt="test_image"/>
+                            </td>
+                            <td colspan="3">
+                                <h4>제품명 : {products1.name}</h4>
+                            </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        <span>상세 사양</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> {products1.core}</td>
+                                    <td> {products1.thread}</td>
+                                    <td> {products1.g}</td>
+                                    <td> {products1.maker}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-7">
+                                                    <h2>가격 : {products1.cost}</h2>
+                                                </div>
+                                                <div class="col-2">
+                                                    <React.Fragment>
+                                                        <button type="button" class="btn btn-outline-primary" onClick={ ()=>confirm1(products1) }>구매</button>
+                                                        <Modal open={modalOpen} close={closeModal} header="구매 페이지"></Modal>
+                                                        <Modal1 open={modalOpen1} close={closeModal1} header="로그인이 필요합니다."></Modal1>
+                                                        {/* header 부분에 텍스트를 입력한다. */}
+
+                                                        {/* Modal.js <main> { props.children } </main>에 내용이 입력된다.  */}
+                                                    </React.Fragment>
+                                                </div>
+                                                <div class="col-3">
+                                            <button onClick={()=>addToCart(products1)} type="button" class="btn btn-outline-warning">장바구니 추가</button>
                                             <Modal2 open={modalOpen2} close={closeModal2} header="장바구니 추가"></Modal2>
                                         </div>
                                     </div>
@@ -677,9 +1153,10 @@ function App() {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>코어 : {product.core}</td>
-                                    <td>스레드 : {product.thread}</td>
-                                    <td>세대 : {product.g}</td>
+                                    <td> {product.core}</td>
+                                    <td> {product.thread}</td>
+                                    <td> {product.g}</td>
+                                    <td> {products1.maker}</td>
                                 </tr>
                                 <tr>
                                     <td colspan="3">
@@ -690,7 +1167,7 @@ function App() {
                                                 </div>
                                                 <div class="col-2">
                                                     <React.Fragment>
-                                                        <button type="button" class="btn btn-outline-primary" onClick= { () => confirm2(product) }>구매하기</button>
+                                                        <button type="button" class="btn btn-outline-primary" onClick= { () => confirm2(product) }>구매</button>
                                                         <Modal open={modalOpen} close={closeModal} header="구매 페이지"></Modal>
                                                         <Modal1 open={modalOpen1} close={closeModal1} header="로그인이 필요합니다."></Modal1>
                                                         {/* header 부분에 텍스트를 입력한다. */}
@@ -739,9 +1216,10 @@ function App() {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>코어 : {product.core}</td>
-                                    <td>스레드 : {product.thread}</td>
-                                    <td>세대 : {product.g}</td>
+                                    <td> {product.core}</td>
+                                    <td> {product.thread}</td>
+                                    <td> {product.g}</td>
+                                    <td> {products1.maker}</td>
                                 </tr>
                                 <tr>
                                     <td colspan="3">
@@ -753,7 +1231,7 @@ function App() {
                                                 <div class="col-2">
                                                 </div>
                                                 <div class="col-3">
-                                            <button onClick={()=>RemoveFromCart1(product)} type="button" class="btn btn-outline-danger">구매 확인</button>
+                                            <button onClick={()=>RemoveFromCart1(product)} type="button" class="btn btn-outline-danger">구매</button>
                                         </div>
                                     </div>
                                 </div>
@@ -787,6 +1265,8 @@ function App() {
                         products1 = {products1}
                         products2 = {products2}
                         products3 = {products3}
+                        products4 = {products4}
+                        products5 = {products5}
                         PAGE_PRODUCT = {PAGE_PRODUCT}
                         PAGE_CART = {PAGE_CART}
                         page ={page}
@@ -803,6 +1283,8 @@ function App() {
                         renderProducts1 = {renderProducts1}
                         renderProducts2 = {renderProducts2}
                         renderProducts3 = {renderProducts3}
+                        renderProducts4 = {renderProducts4}
+                        renderProducts5 = {renderProducts5}
                         />
                     </Route>
                     <Route path="/" exact="exact">
@@ -811,6 +1293,8 @@ function App() {
                         products1 = {products1}
                         products2 = {products2}
                         products3 = {products3}
+                        products4 = {products4}
+                        products5 = {products5}
                         PAGE_PRODUCT = {PAGE_PRODUCT}
                         PAGE_CART = {PAGE_CART}
                         PAGE_CART1 = {PAGE_CART1}
@@ -829,6 +1313,8 @@ function App() {
                         renderProducts1 = {renderProducts1}
                         renderProducts2 = {renderProducts2}
                         renderProducts3 = {renderProducts3}
+                        renderProducts4 = {renderProducts4}
+                        renderProducts5 = {renderProducts5}
                         user = {user}
                         />
                     </Route>
