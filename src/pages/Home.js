@@ -244,6 +244,7 @@ const RemoveFromCart = (productToremove)=>{
 
 const renderProducts = () =>(
                                 <div>
+                                    <h4>물품 내역</h4>
                                 {products.map((product, idx)=>(
                                     <div className="product" key={idx}>
                                         <img src={product.image} alt={product.name}/>
@@ -261,6 +262,7 @@ const renderProducts = () =>(
 
 const renderCart = () =>(
     <div>
+        <h4>장바구니</h4>
     {cart.map((product, idx)=>(
         <div className="cart" key={idx}>
             <img src={product.image} alt={product.name}/>
@@ -275,6 +277,22 @@ const renderCart = () =>(
     </div>
 )
 
+const renderCart1 = () =>(
+    <div>
+        <h4>구매내역</h4>
+    {cart.map((product, idx)=>(
+        <div className="cart" key={idx}>
+            <img src={product.image} alt={product.name}/>
+            <h3>{product.name}</h3>
+            <h4>{product.cost}</h4>
+            <h4>{product.core}</h4>
+            <h4>{product.thread}</h4>
+            <h4>{product.g}</h4>
+            <button onClick={()=>RemoveFromCart(product)}>장바구니에서 제거({cart.length})</button>
+    </div>
+    ))}
+    </div>
+)
 const navigateTo = (nextPage)=>{
     setPage(nextPage);
 };
@@ -289,6 +307,9 @@ const navigateTo = (nextPage)=>{
                 </p>
                 <p>
                     <Button onClick={()=>navigateTo(PAGE_PRODUCT)}> 제품 보기 </Button>
+                </p>
+                <p>
+                    <Button onClick={()=>navigateTo(PAGE_CART)}> 구매내역 </Button>
                 </p>
             </Jumbotron>
             {/* 위의 이미지는 public폴더에 있습니다. public에서 이미지를 가져오려면 process.env.PUBLIC_URLL을 사용해야됩니다. */}
