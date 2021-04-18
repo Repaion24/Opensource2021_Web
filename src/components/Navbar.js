@@ -4,7 +4,7 @@ import { Navbar,Nav,NavDropdown } from 'react-bootstrap';
 
 const Navbar_ = ( {handleLogout, user} ) => {
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="dark" variant="dark" expand="lg">
             <Navbar.Brand href="/">
                 <h1>Com.Com</h1>
                 </Navbar.Brand>

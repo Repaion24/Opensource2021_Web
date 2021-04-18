@@ -132,14 +132,6 @@ function App() {
         setModalOpen2(false);
     }
 
-    const [computerproduct] = useState([
-        {
-            
-        }
-    ])
-
-
-
     const [products] = useState([
         {
             name : 'Intel CPU i7',
@@ -196,7 +188,6 @@ function App() {
             g : '10세대',
             image : process.env.PUBLIC_URL + '/Intel celleron.jpg',
             maker : 'Intel'
-            
         },
         {
             name : 'AMD Ryzen9 ',
@@ -366,7 +357,7 @@ function App() {
             cost : '130,000',
             core : '메모리 :128GB',
             thread : '슬롯 갯수 : 4개',
-            g : 'ASRock',
+            maker : 'Intel',
             image : process.env.PUBLIC_URL + '/ASRock B560M PRO4 에즈윈.jpg',
             
         },
@@ -375,7 +366,7 @@ function App() {
             cost : '130,000',
             core : '메모리 :128GB',
             thread : '슬롯 갯수 : 4개',
-            g : 'ASRock',
+            maker : 'Intel',
             image : process.env.PUBLIC_URL + '/ASRock B560M PRO4 에즈윈.jpg',
             
         },
@@ -384,7 +375,7 @@ function App() {
             cost : '90,000',
             core : '메모리 :128GB',
             thread : '슬롯 갯수 : 4개',
-            g : 'MSI',
+            maker : 'AMD',
             image : process.env.PUBLIC_URL + '/MSI MAG B450M 박격포 맥스.jpg',
             
         },
@@ -646,7 +637,7 @@ function App() {
             cost : '130,000',
             core : '메모리 :128GB',
             thread : '슬롯 갯수 : 4개',
-            g : 'ASRock',
+            maker : 'Intel',
             image : process.env.PUBLIC_URL + '/ASRock B560M PRO4 에즈윈.jpg',
             
         },
@@ -655,7 +646,7 @@ function App() {
             cost : '130,000',
             core : '메모리 :128GB',
             thread : '슬롯 갯수 : 4개',
-            g : 'ASRock',
+            maker : 'Intel',
             image : process.env.PUBLIC_URL + '/ASRock B560M PRO4 에즈윈.jpg',
             
         },
@@ -664,11 +655,12 @@ function App() {
             cost : '90,000',
             core : '메모리 :128GB',
             thread : '슬롯 갯수 : 4개',
-            g : 'MSI',
+            maker : 'AMD',
             image : process.env.PUBLIC_URL + '/MSI MAG B450M 박격포 맥스.jpg',
             
         }
     ])
+
     const [products5] = useState([
         {
             name : '마이크로닉스 Classic II 600W 80PLUS 230V EU',
@@ -692,6 +684,7 @@ function App() {
             image : process.env.PUBLIC_URL + '/	FSP HYDRO G PRO 1000W 80PLUS Gold Full Modular.jpg',
         }
     ])
+
     
     const PAGE_PRODUCT = 'products';
     const PAGE_CART = 'cart';
@@ -754,6 +747,38 @@ function App() {
         }
     }
 
+    var checking = true;
+    var before = "";
+
+    const changecheck = () =>{
+        checking = false;
+    }
+
+
+    const check = () => {
+        if(cart.length == 0){
+            return true;
+        }
+        {checking = true}
+        {before = cart[0].maker}
+        {cart.map((product, idx)=>(
+            <div className="product" key={idx}>
+                {product.maker ? (
+                    (before != product.maker) && changecheck
+                    (before = product.maker)
+                ) : (
+                    console.log()
+                )}
+        </div>
+        ))}
+
+        if(checking){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
     
     
     const renderProducts = () =>(
@@ -1156,7 +1181,7 @@ function App() {
                                     <td> {product.core}</td>
                                     <td> {product.thread}</td>
                                     <td> {product.g}</td>
-                                    <td> {products1.maker}</td>
+                                    <td> {product.maker}</td>
                                 </tr>
                                 <tr>
                                     <td colspan="3">
@@ -1219,7 +1244,7 @@ function App() {
                                     <td> {product.core}</td>
                                     <td> {product.thread}</td>
                                     <td> {product.g}</td>
-                                    <td> {products1.maker}</td>
+                                    <td> {product.maker}</td>
                                 </tr>
                                 <tr>
                                     <td colspan="3">
@@ -1231,7 +1256,7 @@ function App() {
                                                 <div class="col-2">
                                                 </div>
                                                 <div class="col-3">
-                                            <button onClick={()=>RemoveFromCart1(product)} type="button" class="btn btn-outline-danger">구매</button>
+                                            <button onClick={()=>RemoveFromCart1(product)} type="button" class="btn btn-outline-danger">구매 확인</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1316,16 +1341,31 @@ function App() {
                         renderProducts4 = {renderProducts4}
                         renderProducts5 = {renderProducts5}
                         user = {user}
+                        checking = {checking}
+                        check = {check}
                         />
                     </Route>
                     <Route path="/Game">
-                        <Game/>
+                        <Game
+                        modalOpen = {modalOpen}
+                        openModal = {openModal}
+                        closeModal = {closeModal}
+                        user = {user}/>
                     </Route>
                     <Route path="/Broadcast">
-                        <Broadcast/>
+                        <Broadcast
+                        modalOpen = {modalOpen}
+                        openModal = {openModal}
+                        closeModal = {closeModal}
+                        user = {user}/>
                     </Route>
                     <Route path="/Office">
-                        <Office/>
+                        <Office
+                        modalOpen = {modalOpen}
+                        openModal = {openModal}
+                        closeModal = {closeModal}
+                        user = {user}
+                        />
                     </Route>
                     <Route path="/Purchasehistory">
                         <Purchasehistory/>

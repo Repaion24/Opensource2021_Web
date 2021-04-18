@@ -1,16 +1,51 @@
 import React, {useState} from 'react';
 import {Jumbotron, ListGroup, ListGroupItem, Button} from 'react-bootstrap'; //제목과 컴퓨터리스트 작성을 위한 import 했음
-import Modal from '../components/Modal';
+import Modal3 from '../components/Modal3'
+import Modal1 from '../components/Modal1'
 
-const Office = () => {
-    const [modalOpen, setModalOpen] = useState(false);
 
-    const openModal = () => {
-        setModalOpen(true);
+const Office = (props) => {
+
+    const {
+        modalOpen,
+        openModal,
+        closeModal,
+        user,
+    } = props;
+
+
+    const [modalOpen1, setModalOpen1] = useState(false);
+    const openModal1 = () => {
+        setModalOpen1(true);
     }
-    const closeModal = () => {
-        setModalOpen(false);
+    const closeModal1 = () => {
+        setModalOpen1(false);
     }
+
+    const [modalOpen3, setModalOpen3] = useState(false);
+    const openModal3 = () => {
+        setModalOpen3(true);
+    }
+    const closeModal3 = () => {
+        setModalOpen3(false);
+    }
+
+
+    function confirm1() {
+        if (user){
+            openModal3();
+            setTimeout(function () {
+            closeModal3();
+        }, 4000);
+        }
+        else{
+            openModal1();
+            setTimeout(function () {
+                closeModal1();
+            }, 2000);
+        }
+    }
+
     return (
         //제목에 내용 넣고, 밑에 제품 리스트 나올 공간 만들었음
         <div>
@@ -34,12 +69,12 @@ const Office = () => {
                             </td>
                         </tr>
                         <tr>
-                            <td>CPU : i5-5000</td>
+                            <td>CPU : i5-6500</td>
                             <td>RAM : 4GB</td>
                             <td>MainBoard : H410M-H</td>
                         </tr>
                         <tr>
-                            <td>GPU : gtx1660</td>
+                            <td>GPU : 인텔 HD 530</td>
                             <td colspan="2">POWER : 300W</td>
                         </tr>
                         <tr>
@@ -47,19 +82,17 @@ const Office = () => {
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-7">
-                                            <h2>가격 : 350,000</h2>
+                                            <h2>가격 : 330,000</h2>
                                         </div>
-                                        <div class="col-2">
+                                        <div class="col-5">
                                             <React.Fragment>
-                                                <button type="button" class="btn btn-outline-primary" onClick={openModal}>구매하기</button>
-                                                <Modal open={modalOpen} close={closeModal} header="구매 페이지"></Modal>
+                                                <button type="button" class="btn btn-outline-primary" onClick={()=>confirm1()}>구매하기</button>
+                                                <Modal3 open={modalOpen3} close={closeModal3} header="구매 페이지"></Modal3>
+                                                <Modal1 open={modalOpen1} close={closeModal1} header="로그인이 필요합니다."></Modal1>
                                                 {/* header 부분에 텍스트를 입력한다. */}
 
                                                 {/* Modal.js <main> { props.children } </main>에 내용이 입력된다.  */}
                                             </React.Fragment>
-                                        </div>
-                                        <div class="col-3">
-                                            <button type="button" class="btn btn-outline-warning">장바구니 추가</button>
                                         </div>
                                     </div>
                                 </div>
@@ -75,8 +108,6 @@ const Office = () => {
                     {/* 그리고 장바구니 추가하면 혹시 가능하면 NavBar에 있는 장바구니에 알림 표시기능 있으면 좋을듯 */}
 
                 </ListGroup.Item>
-                <ListGroupItem>이미지랑 사양이랑 내용</ListGroupItem>
-                <ListGroupItem>이미지랑 사양이랑 내용</ListGroupItem>
 
             </ListGroup>
 

@@ -43,8 +43,11 @@ const Home = (props) => {
         renderProducts3,
         renderProducts4,
         renderProducts5,
-        user
+        user,
+        checking,
+        check
     } = props;
+
 
 
 
@@ -94,7 +97,7 @@ const Home = (props) => {
                 </Tab>
                 <Tab eventKey="ram" title="RAM">
                 <Card.Header><h4>RAM 목록</h4></Card.Header>
-                    {/* 여기는 GPU Tab 부분 */}
+                    {/* 여기는 RAM Tab 부분 */}
 
                     <ListGroup variant="flush">
                     <table class="table table-hover">
@@ -105,7 +108,7 @@ const Home = (props) => {
 
                 <Tab eventKey="gpu" title="GPU">
                 <Card.Header><h4>GPU 목록</h4></Card.Header>
-                    {/* 여기는 RAM Tab 부분 */}
+                    {/* 여기는 GPU Tab 부분 */}
                     <ListGroup variant="flush">
                     <table class="table table-hover">
                         {renderProducts3()}    
@@ -115,7 +118,7 @@ const Home = (props) => {
                 
                 <Tab eventKey="board" title="BOARD">
                 <Card.Header><h4>Board 목록</h4></Card.Header>
-                    {/* 여기는 RAM Tab 부분 */}
+                    {/* 여기는 MotherBoard Tab 부분 */}
                     <ListGroup variant="flush">
                     <table class="table table-hover">
                         {renderProducts4()}    
@@ -125,7 +128,7 @@ const Home = (props) => {
 
                 <Tab eventKey="power" title="POWER">
                 <Card.Header><h4>power 목록</h4></Card.Header>
-                    {/* 여기는 RAM Tab 부분 */}
+                    {/* 여기는 Power Tab 부분 */}
                     <ListGroup variant="flush">
                     <table class="table table-hover">
                         {renderProducts5()}    
@@ -139,13 +142,14 @@ const Home = (props) => {
             
             ) : (
             <table class="table table-hover">
-                    {(page == PAGE_CART && user) && <div><Card.Header>장바구니</Card.Header>{renderCart()}</div>}
-                    {(page == PAGE_CART1 && user) && <div><Card.Header>구매내역</Card.Header>{renderCart1()}</div>} 
+                {(page == PAGE_CART && user) && <div><Card.Header>장바구니</Card.Header></div>}
+                {(page == PAGE_CART && user && !check() && cart.length != 0) && <div><Card text = 'white' bg = 'danger'><Card.Header>호환성 문제 발생</Card.Header></Card></div>}
+                {(page == PAGE_CART && user && check() && cart.length != 0) && <div><Card text = 'white' bg = 'success'><Card.Header>호환성 문제 없음 </Card.Header></Card></div>}
+                {(page == PAGE_CART && user) && <div>{renderCart()}</div>}
+                {(page == PAGE_CART1 && user) && <div><Card.Header>구매내역</Card.Header>{renderCart1()}</div>} 
             </table>
             )}
 
-
-            {/* 43~700번 줄까지 Home페이지 상품 리스트 출력 코드 (21-04-15 차재현) */}
             <script src="/__/firebase/8.4.1/firebase-app.js"></script>
 
             <script src="/__/firebase/8.4.1/firebase-analytics.js"></script>
