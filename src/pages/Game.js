@@ -59,7 +59,7 @@ const Game = (props) => {
                         <tr>
                             <td class="pricewidth" rowspan="4">
                                 <img
-                                    src={process.env.PUBLIC_URL + '/test_image.png'}
+                                    src={process.env.PUBLIC_URL + '/게임용.jpg'}
                                     width='200'
                                     height='200'
                                     alt="test_image"/>
