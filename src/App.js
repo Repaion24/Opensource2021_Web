@@ -642,21 +642,78 @@ function App() {
             
         },
         {
-            name : 'ASRock B560M PRO4 에즈윈',
-            cost : '130,000',
-            core : '메모리 :128GB',
-            thread : '슬롯 갯수 : 4개',
-            maker : 'Intel',
-            image : process.env.PUBLIC_URL + '/ASRock B560M PRO4 에즈윈.jpg',
-            
-        },
-        {
             name : 'MSI MAG B450M 박격포 맥스',
             cost : '90,000',
             core : '메모리 :128GB',
             thread : '슬롯 갯수 : 4개',
             maker : 'AMD',
             image : process.env.PUBLIC_URL + '/MSI MAG B450M 박격포 맥스.jpg',
+            
+        },
+        {
+            name : 'ASRock Z590 스틸레전드',
+            cost : '260,000',
+            core : '메모리 :128GB',
+            thread : '슬롯 갯수 : 5개',
+            maker : 'Intel',
+            image : process.env.PUBLIC_URL + '/ASRock Z590 스틸레전드.jpg',
+            
+        },
+        {
+            name : 'ASRock Z590 EXTREME',
+            cost : '280,000',
+            core : '메모리 :128GB',
+            thread : '슬롯 갯수 : 5개',
+            maker : 'Intel',
+            image : process.env.PUBLIC_URL + '/ASRock Z590 EXTREME.jpg',
+            
+        }, {
+            name : 'ASRock H470M-ITX/ac',
+            cost : '180,000',
+            core : '메모리 :64GB',
+            thread : '슬롯 갯수 : 1개',
+            maker : 'Intel',
+            image : process.env.PUBLIC_URL + '/ASRock H470M-ITX.jpg',
+            
+        }, {
+            name : 'ASRock H510M-HDV',
+            cost : '90,000',
+            core : '메모리 :64GB',
+            thread : '슬롯 갯수 : 2개',
+            maker : 'Intel',
+            image : process.env.PUBLIC_URL + '/ASRock H510M-HDV.jpg',
+            
+        },  {
+            name : 'ASUS ROG CROSSHAIR VIII DARK HERO',
+            cost : '530,000',
+            core : '메모리 :128GB',
+            thread : '슬롯 갯수 : 4개',
+            maker : 'AMD',
+            image : process.env.PUBLIC_URL + '/ASUS ROG CROSSHAIR VIII DARK HERO.jpg',
+            
+        }, {
+            name : 'ASRock A320M-HDV R4.0 ',
+            cost : '66,000',
+            core : '메모리 :32GB',
+            thread : '슬롯 갯수 : 2개',
+            maker : 'AMD',
+            image : process.env.PUBLIC_URL + '/ASRock A320M-HDV R4.0.jpg',
+            
+        }, {
+            name : 'ASUS TUF Gaming B550-PLUS',
+            cost : '170,000',
+            core : '메모리 :128GB',
+            thread : '슬롯 갯수 : 5개',
+            maker : 'AMD',
+            image : process.env.PUBLIC_URL + '/ASUS TUF Gaming B550-PLUS.jpg',
+            
+        }, {
+            name : 'MSI A520M-A PRO',
+            cost : '70,000',
+            core : '메모리 :64GB',
+            thread : '슬롯 갯수 : 2개',
+            maker : 'AMD',
+            image : process.env.PUBLIC_URL + '/MSI A520M-A PRO.jpg',
             
         }
     ])
@@ -682,6 +739,48 @@ function App() {
             core : '출력 : 1000W',
             thread : 'FSP',
             image : process.env.PUBLIC_URL + '/	FSP HYDRO G PRO 1000W 80PLUS Gold Full Modular.jpg',
+        },{
+            name : '마이크로닉스 CASLON M 700W 80PLUS 230V EU',
+            cost : '79,000',
+            core : '출력 : 7000W',
+            thread : '마이크로닉스',
+            image : process.env.PUBLIC_URL + '/	마이크로닉스 CASLON M 700W 80PLUS 230V EU.jpg',
+        },{
+            name : 'EVGA 750 GQ 80PLUS GOLD',
+            cost : '110,000',
+            core : '출력 : 7500W',
+            thread : 'EVGA',
+            image : process.env.PUBLIC_URL + '/	EVGA 750 GQ 80PLUS GOLD.jpg',
+        },{
+            name : 'Antec EAG PRO 750W 80PLUS GOLD',
+            cost : '110,000',
+            core : '출력 : 750W',
+            thread : 'Antec',
+            image : process.env.PUBLIC_URL + '/	Antec EAG PRO 750W 80PLUS GOLD.jpg',
+        },{
+            name : '쿨러마스터 MWE 600 BRONZE V2 230V',
+            cost : '56,000',
+            core : '출력 : 600W',
+            thread : '쿨러마스터',
+            image : process.env.PUBLIC_URL + '/	쿨러마스터 MWE 600 BRONZE V2 230V.jpg',
+        },{
+            name : '에너맥스 REVOLUTION D.F. ERF750EWT 80Plus Gold Full Modular',
+            cost : '130,000',
+            core : '출력 : 750W',
+            thread : '애너맥스',
+            image : process.env.PUBLIC_URL + '/	에너맥스 REVOLUTION D.F. ERF750EWT 80Plus Gold Full Modular.jpg',
+        },{
+            name : '시소닉 FOCUS GOLD GM-850 Modular',
+            cost : '140,000',
+            core : '출력 : 850W',
+            thread : '시소닉',
+            image : process.env.PUBLIC_URL + '/	시소닉 FOCUS GOLD GM-850 Modular.jpg',
+        },{
+            name : '시소닉 PRIME GOLD GX-1300 Full Modular',
+            cost : '340,000',
+            core : '출력 : 1300W',
+            thread : '시소닉',
+            image : process.env.PUBLIC_URL + '/	시소닉 PRIME GOLD GX-1300 Full Modular.jpg',
         }
     ])
 
